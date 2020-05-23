@@ -38,4 +38,11 @@ There are a few built into this repo which make use of the both the object above
 - [Plint](./colors/plint.vim), which is a low contrast minty scheme
 
 
+## The Misc Folder
+
+The files in their are either to use the current Bolorscheme in terminal emulators, or in other Vim plugins.
+
+For example, `./misc/airline/bolorscheme.vim` contains a generic [Airline](https://github.com/vim-airline/vim-airline) theme definition taking from te `g:colors_dict` created above; in order to use this file, you'll have to put it somewhere that the plugin can see it, in this example that would likely be `$HOME/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/bolorscheme.vim`.
+
+
 __Note__: None of the above are thoroughly planned out schemes, just examples.
