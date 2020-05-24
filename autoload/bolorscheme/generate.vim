@@ -5,33 +5,38 @@ let s:idx = 1
 function! bolorscheme#generate#generic(cfg, ft)
   enew
   exec 'set ft=' . a:ft
+  set buftype=nofile
   put! =a:cfg
+endfunction
+
+function! <SID>hash_replace(val)
+  return substitute(a:val, '#', '0x', '')
 endfunction
 
 function! bolorscheme#generate#alacritty()
   let l:config = [
         \ "colors:",
         \ "  primary:",
-        \ "    background: '" . g:color_dict.bg[s:idx] . "'",
-        \ "    foreground: '" . g:color_dict.fg[s:idx] . "'",
+        \ "    background: '" . <SID>hash_replace(g:color_dict.bg[s:idx]) . "'",
+        \ "    foreground: '" . <SID>hash_replace(g:color_dict.fg[s:idx]) . "'",
         \ "  normal:",
-        \ "    black:      '" . g:color_dict.dark_gray[s:idx]     . "'",
-        \ "    red:        '" . g:color_dict.light_red[s:idx]     . "'",
-        \ "    green:      '" . g:color_dict.light_green[s:idx]   . "'",
-        \ "    yellow:     '" . g:color_dict.light_yellow[s:idx]  . "'",
-        \ "    blue:       '" . g:color_dict.light_blue[s:idx]    . "'",
-        \ "    magenta:    '" . g:color_dict.light_magenta[s:idx] . "'",
-        \ "    cyan:       '" . g:color_dict.light_cyan[s:idx]    . "'",
-        \ "    white:      '" . g:color_dict.light_gray[s:idx]    . "'",
+        \ "    black:      '" . <SID>hash_replace(g:color_dict.dark_gray[s:idx])     . "'",
+        \ "    red:        '" . <SID>hash_replace(g:color_dict.light_red[s:idx])     . "'",
+        \ "    green:      '" . <SID>hash_replace(g:color_dict.light_green[s:idx])   . "'",
+        \ "    yellow:     '" . <SID>hash_replace(g:color_dict.light_yellow[s:idx])  . "'",
+        \ "    blue:       '" . <SID>hash_replace(g:color_dict.light_blue[s:idx])    . "'",
+        \ "    magenta:    '" . <SID>hash_replace(g:color_dict.light_magenta[s:idx]) . "'",
+        \ "    cyan:       '" . <SID>hash_replace(g:color_dict.light_cyan[s:idx])    . "'",
+        \ "    white:      '" . <SID>hash_replace(g:color_dict.light_gray[s:idx])    . "'",
         \ "  bright:",
-        \ "    black:      '" . g:color_dict.dark_gray[s:idx]    . "'",
-        \ "    red:        '" . g:color_dict.dark_red[s:idx]     . "'",
-        \ "    green:      '" . g:color_dict.dark_green[s:idx]   . "'",
-        \ "    yellow:     '" . g:color_dict.dark_yellow[s:idx]  . "'",
-        \ "    blue:       '" . g:color_dict.dark_blue[s:idx]    . "'",
-        \ "    magenta:    '" . g:color_dict.dark_magenta[s:idx] . "'",
-        \ "    cyan:       '" . g:color_dict.dark_cyan[s:idx]    . "'",
-        \ "    white:      '" . g:color_dict.light_gray[s:idx]   . "'"
+        \ "    black:      '" . <SID>hash_replace(g:color_dict.dark_gray[s:idx])    . "'",
+        \ "    red:        '" . <SID>hash_replace(g:color_dict.dark_red[s:idx])     . "'",
+        \ "    green:      '" . <SID>hash_replace(g:color_dict.dark_green[s:idx])   . "'",
+        \ "    yellow:     '" . <SID>hash_replace(g:color_dict.dark_yellow[s:idx])  . "'",
+        \ "    blue:       '" . <SID>hash_replace(g:color_dict.dark_blue[s:idx])    . "'",
+        \ "    magenta:    '" . <SID>hash_replace(g:color_dict.dark_magenta[s:idx]) . "'",
+        \ "    cyan:       '" . <SID>hash_replace(g:color_dict.dark_cyan[s:idx])    . "'",
+        \ "    white:      '" . <SID>hash_replace(g:color_dict.light_gray[s:idx])   . "'"
         \]
   call bolorscheme#generate#generic(l:config, 'yaml')
 endfunction
