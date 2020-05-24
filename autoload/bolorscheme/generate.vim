@@ -77,26 +77,26 @@ function! bolorscheme#generate#color_dict_from_wal(...)
   let l:colors = readfile(l:fn)
   let g:color_dict = {
         \ "none"          : ["NONE", ""],
+        \ "off_bg"        : ["NONE", ""],
+        \ "highlight"     : ["NONE", ""],
         \ "bg"            : [0,  l:colors[0 ]],
-        \ "off_bg"        : [0,  l:colors[0 ]],
-        \ "highlight"     : [0,  l:colors[0 ]],
-        \ "fg"            : [0,  l:colors[0 ]],
+        \ "fg"            : [7,  l:colors[7 ]],
         \
-        \ "dark_gray"     : [0,  l:colors[0 ]],
-        \ "light_gray"    : [7,  l:colors[7 ]],
         \ "light_red"     : [1,  l:colors[1 ]],
         \ "light_green"   : [2,  l:colors[2 ]],
         \ "light_yellow"  : [3,  l:colors[3 ]],
         \ "light_blue"    : [4,  l:colors[4 ]],
         \ "light_magenta" : [5,  l:colors[5 ]],
         \ "light_cyan"    : [6,  l:colors[6 ]],
+        \ "light_gray"    : [8,  l:colors[8 ]],
         \
         \ "dark_red"      : [9,  l:colors[9 ]],
         \ "dark_green"    : [10, l:colors[10]],
         \ "dark_yellow"   : [11, l:colors[11]],
         \ "dark_blue"     : [12, l:colors[12]],
         \ "dark_magenta"  : [13, l:colors[13]],
-        \ "dark_cyan"     : [14, l:colors[14]]
+        \ "dark_cyan"     : [14, l:colors[14]],
+        \ "dark_gray"     : [15, l:colors[15]],
         \ }
 
   let l:cfg = [ "let g:color_dict = {" ]
