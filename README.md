@@ -37,12 +37,17 @@ There are a few built into this repo which make use of the both the object above
 - [Subdued](./colors/subdued.vim), which is a fairly standard color palette but slightly softened
 - [Plint](./colors/plint.vim), which is a low contrast minty scheme
 
+__Note__: None of the above are thoroughly planned out schemes, just examples.
+
 
 ## The Misc Folder
 
-The files in their are either to use the current Bolorscheme in terminal emulators, or in other Vim plugins.
+The files in here are either to use the current Bolorscheme in terminal emulators, or in other Vim plugins.
 
-For example, `./misc/airline/bolorscheme.vim` contains a generic [Airline](https://github.com/vim-airline/vim-airline) theme definition taking from te `g:colors_dict` created above; in order to use this file, you'll have to put it somewhere that the plugin can see it, in this example that would likely be `$HOME/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/bolorscheme.vim`.
+For example, `./misc/vim-airline/bolorscheme.vim` contains a generic [Airline](https://github.com/vim-airline/vim-airline) theme definition taking from the `g:colors_dict` created above; in order to use this file, you'll have to put it somewhere that the plugin can see it, in this example that would likely be `$HOME/.local/share/nvim/plugged/vim-airline-themes/autoload/airline/themes/bolorscheme.vim`.
 
+To avoid having to do this manually, there are a couple of autoloaded functions provided also, these are:
 
-__Note__: None of the above are thoroughly planned out schemes, just examples.
+`bolorscheme#symlink#airline()` (`SymlinkAirlineFromBolorscheme`) and `bolorscheme#symlink#lightline()` (`SymlinkLightlineFromBolorscheme`) which both use [Vim-plug's](https://github.com/junegunn/vim-plug) `g:plug_home` variable mainly because I use Vim-plug - if you don't, you can set `g:plug_home` to the relevant directory manually.
+
+There is also `bolorscheme#generate#alacritty()` (`GenerateAlacrittyFromBolorscheme`) and `bolorscheme#generate#kitty()` (`GenerateKittyFromBolorscheme`) which will write your `g:color_dict` in the relevant format to a new buffer.
