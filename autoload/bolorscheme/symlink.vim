@@ -26,13 +26,15 @@ function! <SID>symlink(from, to) abort
   echo system('ln -s ' . a:from . ' ' . a:to)
 endfunction
 
+let s:dir = expand('<sfile>:p:h')
+
 function! bolorscheme#symlink#generic(plugin, theme_path) abort
   let l:plugin = a:plugin
   if len(finddir(l:plugin, g:plug_home)) == 0
     echoe 'BolorScheme: [' . l:plugin . '] not found in [g:plug_home], ' . l:plugin . 'may not be installed'
     return
   endif
-  let l:from = expand('<sfile>:p:h') . '/misc/' . l:plugin . '/bolorscheme.vim'
+  let l:from = s:dir . '/../../misc/' . l:plugin . '/bolorscheme.vim'
   let l:to = g:plug_home . '/' . l:plugin . '/' . a:theme_path . '/bolorscheme.vim'
   call <SID>symlink(l:from, l:to)
 endfunction
