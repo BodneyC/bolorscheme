@@ -5,7 +5,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "boloscheme"
+let g:colors_name = "bolorscheme"
 
 " This is the color_dict variable you will need to define
 

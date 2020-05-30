@@ -17,6 +17,7 @@ call <SID>set_hi("SpellCap",         g:color_dict.light_blue,   g:color_dict.non
 call <SID>set_hi("StatusLine",       g:color_dict.fg,           g:color_dict.dark_gray,     "bold")
 call <SID>set_hi("Cursor",           g:color_dict.bg,           g:color_dict.fg,            "NONE")
 call <SID>set_hi("CursorLine",       g:color_dict.none,         g:color_dict.off_bg,        "NONE")
+call <SID>set_hi("CursorLineNr",     g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("DiffAdd",          g:color_dict.fg,           g:color_dict.dark_green,    "bold")
 call <SID>set_hi("DiffDelete",       g:color_dict.dark_red,     g:color_dict.none,          "NONE")
 call <SID>set_hi("Directory",        g:color_dict.dark_magenta, g:color_dict.none,          "NONE")
@@ -30,7 +31,7 @@ call <SID>set_hi("SyntasticError",   g:color_dict.bg,           g:color_dict.lig
 call <SID>set_hi("SyntasticWarning", g:color_dict.bg,           g:color_dict.light_blue,    "NONE")
 call <SID>set_hi("TabLineSel",       g:color_dict.light_cyan,   g:color_dict.bg,            "NONE")
 call <SID>set_hi("VertSplit",        g:color_dict.off_bg,       g:color_dict.off_bg,        "NONE")
-call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.dark_gray,     "NONE")
+call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.light_gray,     "NONE")
 
 " Code but consistent
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
