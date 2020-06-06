@@ -5,7 +5,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let $TERMTHEME ="light"
+let $TERMTHEME = "light"
 let g:colors_name = "plint-light"
 
 let g:color_dict = {
