@@ -62,7 +62,7 @@ let g:airline#themes#bolorscheme#palette.visual_modified = g:airline#themes#bolo
 " ----- Inactive
 let s:a_inactive = [ s:fg,                    s:dic.dark_gray[s:idx], 239, 234, '' ]
 let s:b_inactive = [ s:fg,                    s:off_bg,               239, 235, '' ]
-let s:c_inactive = [ s:dic.light_blue[s:idx], s:bg,                   239, 236, '' ]
+let s:c_inactive = [ s:dic.light_blue[s:idx], s:off_bg,               239, 236, '' ]
 
 let g:airline#themes#bolorscheme#palette.inactive = airline#themes#generate_color_map(s:a_inactive, s:b_inactive, s:c_inactive)
 let g:airline#themes#bolorscheme#palette.inactive_modified = g:airline#themes#bolorscheme#palette.normal_modified
