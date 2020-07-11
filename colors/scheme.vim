@@ -1,9 +1,12 @@
-function! <SID>set_hi(group, fg, bg, style)
-  execute "hi " . a:group . " ctermfg=" . a:fg[0] . " ctermbg=" . a:bg[0] " cterm=" . a:style
-  if a:fg[1] != "" | execute "hi " . a:group . " guifg=" . a:fg[1] | endif
-  if a:bg[1] != "" | execute "hi " . a:group . " guibg=" . a:bg[1] | endif
-  execute "hi " . a:group . " gui=" . a:style
-endfun
+let s:idx = &t_Co > 2 || has("gui_running")
+let s:color_plane = ["cterm", "gui"]
+
+func! <SID>set_hi(group, fg, bg, style)
+  exe "hi " . a:group .
+        \ " " . s:color_plane[s:idx] . "fg=" . a:fg[s:idx] .
+        \ " " . s:color_plane[s:idx] . "bg=" . a:bg[s:idx] .
+        \ " " . s:color_plane[s:idx] . "="   . a:style
+endfunc
 
 " UI
 call <SID>set_hi("CocBold",          g:color_dict.none,         g:color_dict.none,          "bold")
@@ -25,7 +28,6 @@ call <SID>set_hi("EndOfBuffer",      g:color_dict.bg,           g:color_dict.bg,
 call <SID>set_hi("ErrorMsg",         g:color_dict.fg,           g:color_dict.dark_red,      "NONE")
 call <SID>set_hi("Folded",           g:color_dict.light_yellow, g:color_dict.bg,            "NONE")
 call <SID>set_hi("LineNr",           g:color_dict.dark_gray,    g:color_dict.bg,            "NONE")
-call <SID>set_hi("NormalFLoat",      g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("IncSearch",        g:color_dict.bg,           g:color_dict.light_yellow,  "NONE")
 call <SID>set_hi("SyntasticError",   g:color_dict.bg,           g:color_dict.light_magenta, "NONE")
 call <SID>set_hi("SyntasticWarning", g:color_dict.bg,           g:color_dict.light_blue,    "NONE")
@@ -37,7 +39,6 @@ call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.dar
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
 call <SID>set_hi("Comment",    g:color_dict.dark_gray,    g:color_dict.none,      "italic")
 call <SID>set_hi("MatchParen", g:color_dict.none,         g:color_dict.highlight, "NONE")
-call <SID>set_hi("Normal",     g:color_dict.fg,           g:color_dict.bg,        "NONE")
 call <SID>set_hi("Title",      g:color_dict.fg,           g:color_dict.none,      "bold")
 
 " Code
@@ -55,9 +56,6 @@ call <SID>set_hi("Include",      g:color_dict.dark_blue,     g:color_dict.none, 
 
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
-hi! link TabLine Normal
-hi! link TabLineFill Normal
-hi! link DiffChange Normal
 hi! link WarningMsg ErrorMsg
 hi! link Boolean Directory
 hi! link StatusLineNC CocFloating
@@ -66,10 +64,8 @@ hi! link PreProc Function
 hi! link Character Directory
 hi! link Float Directory
 hi! link Keyword Conditional
-hi! link NonText Normal
 hi! link Operator Conditional
 hi! link Special Label
-hi! link SpecialKey Normal
 hi! link Statement Conditional
 hi! link Tag Conditional
 hi! link Underline Search
@@ -135,7 +131,7 @@ hi! link jsGlobalObjects Number
 
 hi! link vimUserFunc Function
 
-" httpg:color_dict.//github.com/kien/rainbow_parentheses.vim
+" https:color_dict.//github.com/kien/rainbow_parentheses.vim
 if !exists("g:rbpt_colorpairs")
   let g:rbpt_colorpairs = [
         \ g:color_dict.light_green, g:color_dict.light_blue, g:color_dict.dark_magenta, g:color_dict.light_magenta,

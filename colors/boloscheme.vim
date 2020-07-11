@@ -10,7 +10,7 @@ let g:colors_name = "bolorscheme"
 " This is the color_dict variable you will need to define
 
 " let g:color_dict = {
-"       \ "none"          : ["NONE", ""],
+"       \ "none"          : ["NONE", "NONE"],
 "       \ "bg"            : [256, "#RRGGBB"],
 "       \ "off_bg"        : [256, "#RRGGBB"],
 "       \ "highlight"     : [256, "#RRGGBB"],

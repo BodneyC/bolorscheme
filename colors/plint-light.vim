@@ -9,7 +9,7 @@ let $TERMTHEME = "light"
 let g:colors_name = "plint-light"
 
 let g:color_dict = {
-      \ "none"          : ["NONE", ""],
+      \ "none"          : ["NONE", "NONE"],
       \ "off_bg"        : ["NONE", "#bbdddd"],
       \ "highlight"     : ["NONE", "#99bbbb"],
       \ "bg"            : [0,      "#ddffff"],
