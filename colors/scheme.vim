@@ -13,7 +13,7 @@ call <SID>set_hi("CocBold",          g:color_dict.none,         g:color_dict.non
 call <SID>set_hi("CocFloating",      g:color_dict.light_cyan,   g:color_dict.highlight,     "NONE")
 call <SID>set_hi("Pmenu",            g:color_dict.bg,           g:color_dict.light_cyan,    "NONE")
 call <SID>set_hi("PmenuSel",         g:color_dict.bg,           g:color_dict.dark_blue,     "NONE")
-call <SID>set_hi("Search",           g:color_dict.none,         g:color_dict.none,          "underline")
+call <SID>set_hi("Search",           g:color_dict.bg,           g:color_dict.dark_yellow,   "undercurl")
 call <SID>set_hi("SignColumn",       g:color_dict.none,         g:color_dict.bg,            "NONE")
 call <SID>set_hi("SpellBad",         g:color_dict.none,         g:color_dict.off_bg,        "italic,underline")
 call <SID>set_hi("SpellCap",         g:color_dict.light_blue,   g:color_dict.none,          "underline")
