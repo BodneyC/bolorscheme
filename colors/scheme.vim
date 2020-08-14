@@ -91,6 +91,30 @@ hi! link CocWarningFloat CocFloating
 hi! link CocErrorFloat CocFloating
 hi! link CocHighlightText MatchParen
 
+" Diagnostics stuff
+hi! link LspDiagnosticsError DiffDelete
+hi! link LspDiagnosticsErrorFloating CocFloating
+hi! link LspDiagnosticsErrorSign DiffDelete
+
+call <SID>set_hi("LspDiagnosticsHint ", g:color_dict.light_blue, g:color_dict.none, "NONE")
+hi! link LspDiagnosticsHintFloating CocFloating
+hi! link LspDiagnosticsHintSign LspDiagnosticsHint
+
+hi! link LspDiagnosticsInformation TabLineSel
+hi! link LspDiagnosticsInformationFloating CocFloating
+hi! link LspDiagnosticsInformationSign TabLineSel
+
+" hi! link LspDiagnosticsUnderline
+" hi! link LspDiagnosticsUnderlineError
+" hi! link LspDiagnosticsUnderlineHint
+" hi! link LspDiagnosticsUnderlineInformation
+" hi! link LspDiagnosticsUnderlineWarning
+
+hi! link LspDiagnosticsWarning Directory
+hi! link LspDiagnosticsWarningFloating CocFloating
+hi! link LspDiagnosticsWarningSign Directory
+
+" Other
 hi! link htmlH1 Identifier
 hi! link htmlH2 Identifier
 hi! link htmlH3 Identifier
