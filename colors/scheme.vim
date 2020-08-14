@@ -28,7 +28,7 @@ call <SID>set_hi("EndOfBuffer",      g:color_dict.bg,           g:color_dict.bg,
 call <SID>set_hi("ErrorMsg",         g:color_dict.fg,           g:color_dict.dark_red,      "NONE")
 call <SID>set_hi("Folded",           g:color_dict.light_yellow, g:color_dict.bg,            "NONE")
 call <SID>set_hi("LineNr",           g:color_dict.dark_gray,    g:color_dict.bg,            "NONE")
-call <SID>set_hi("NormalFLoat",      g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
+call <SID>set_hi("NormalFloat",      g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("IncSearch",        g:color_dict.bg,           g:color_dict.light_yellow,  "NONE")
 call <SID>set_hi("SyntasticError",   g:color_dict.bg,           g:color_dict.light_magenta, "NONE")
 call <SID>set_hi("SyntasticWarning", g:color_dict.bg,           g:color_dict.light_blue,    "NONE")

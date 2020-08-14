@@ -10,7 +10,7 @@ let g:colors_name = "subdued"
 let g:color_dict = {
       \ "none"          : ["NONE", "NONE"],
       \ "bg"            : [0,   "#1c1b1d"],
-      \ "off_bg"        : [235, "#282729"],
+      \ "off_bg"        : [235, "#302f34"],
       \ "highlight"     : [236, "#403a3a"],
       \ "dark_gray"     : [1,   "#928c92"],
       \ "light_gray"    : [7,   "#ccc9cc"],
