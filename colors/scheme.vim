@@ -83,36 +83,47 @@ hi! link CocGitAddedSign GitGutterAdd
 hi! link CocGitChangedSign GitGutterChange
 hi! link CocGitChangeRemovedSign GitGutterChangeDelete
 hi! link CocGitRemovedSign GitGutterDelete
-hi! link CocWarningHighlight CocBold
-hi! link CocErrorHighlight CocBold
-hi! link CocInfoHighlight CocBold
-hi! link CocHintHighlight CocBold
-hi! link CocWarningFloat CocFloating
-hi! link CocErrorFloat CocFloating
+
 hi! link CocHighlightText MatchParen
 
-" Diagnostics stuff
-hi! link LspDiagnosticsError DiffDelete
-hi! link LspDiagnosticsErrorFloating CocFloating
-hi! link LspDiagnosticsErrorSign DiffDelete
+" -s- Diagnostics stuff
+"" ERROR
+hi! link CocErrorHighlight DiffDelete
+hi! link CocErrorSign DiffDelete
+hi! link CocErrorFloat CocFloating
 
-call <SID>set_hi("LspDiagnosticsHint ", g:color_dict.light_blue, g:color_dict.none, "NONE")
+hi! link LspDiagnosticsError DiffDelete
+hi! link LspDiagnosticsErrorSign DiffDelete
+hi! link LspDiagnosticsErrorFloating CocFloating
+
+"" HINT
+call <SID>set_hi("CocHintHighlight", g:color_dict.light_blue, g:color_dict.none, "NONE")
+hi! link CocHintSign CocHintLine
+hi! link CocHintFloat CocFloating
+
+hi! link LspDiagnosticsHint CocHintLine
+hi! link LspDiagnosticsHintSign CocHintLine
 hi! link LspDiagnosticsHintFloating CocFloating
-hi! link LspDiagnosticsHintSign LspDiagnosticsHint
+
+"" INFO
+hi! link CocInfoSign TabLineSel
+hi! link CocInfoHighlight TabLineSel
+hi! link CocInfoFloat CocFloating
 
 hi! link LspDiagnosticsInformation TabLineSel
-hi! link LspDiagnosticsInformationFloating CocFloating
 hi! link LspDiagnosticsInformationSign TabLineSel
+hi! link LspDiagnosticsInformationFloating CocFloating
 
-" hi! link LspDiagnosticsUnderline
-" hi! link LspDiagnosticsUnderlineError
-" hi! link LspDiagnosticsUnderlineHint
-" hi! link LspDiagnosticsUnderlineInformation
-" hi! link LspDiagnosticsUnderlineWarning
+"" WARNING
+hi! link CocWarningSign CocFloating
+hi! link CocWarningHighlight CocFloating
+hi! link CocWarningFloat CocFloating
 
 hi! link LspDiagnosticsWarning Directory
-hi! link LspDiagnosticsWarningFloating CocFloating
 hi! link LspDiagnosticsWarningSign Directory
+hi! link LspDiagnosticsWarningFloating CocFloating
+
+" -e-
 
 " Other
 hi! link htmlH1 Identifier
