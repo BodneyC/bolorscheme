@@ -115,8 +115,8 @@ hi! link LspDiagnosticsInformationSign TabLineSel
 hi! link LspDiagnosticsInformationFloating CocFloating
 
 "" WARNING
-hi! link CocWarningSign CocFloating
-hi! link CocWarningHighlight CocFloating
+hi! link CocWarningSign TabLineSel
+hi! link CocWarningHighlight TabLineSel
 hi! link CocWarningFloat CocFloating
 
 hi! link LspDiagnosticsWarning Directory
