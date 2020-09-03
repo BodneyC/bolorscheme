@@ -9,6 +9,7 @@ func! <SID>set_hi(group, fg, bg, style)
 endfunc
 
 " UI
+call <SID>set_hi("Normal",           g:color_dict.fg,           g:color_dict.bg,            "NONE")
 call <SID>set_hi("CocBold",          g:color_dict.none,         g:color_dict.none,          "bold")
 call <SID>set_hi("CocFloating",      g:color_dict.light_cyan,   g:color_dict.highlight,     "NONE")
 call <SID>set_hi("Pmenu",            g:color_dict.bg,           g:color_dict.light_cyan,    "NONE")
