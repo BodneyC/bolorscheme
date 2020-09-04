@@ -10,7 +10,7 @@ let g:colors_name = "solarized-light"
 let g:color_dict = {
       \ "none"          : ["NONE", "NONE"],
       \ "bg"            : [0,   "#ffffd7"],
-      \ "off_bg"        : [235, "#d7d7af"],
+      \ "off_bg"        : [235, "#ffffdf"],
       \ "highlight"     : [236, "#d7d7af"],
       \ "dark_gray"     : [1,   "#8a8a8a"],
       \ "light_gray"    : [7,   "#8a8a8a"],
