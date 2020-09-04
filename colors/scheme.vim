@@ -18,15 +18,12 @@ call <SID>set_hi("Search",           g:color_dict.bg,           g:color_dict.dar
 call <SID>set_hi("SignColumn",       g:color_dict.none,         g:color_dict.bg,            "NONE")
 call <SID>set_hi("SpellBad",         g:color_dict.none,         g:color_dict.off_bg,        "italic,underline")
 call <SID>set_hi("SpellCap",         g:color_dict.light_blue,   g:color_dict.none,          "underline")
-call <SID>set_hi("StatusLine",       g:color_dict.fg,           g:color_dict.dark_gray,     "bold")
 call <SID>set_hi("Cursor",           g:color_dict.bg,           g:color_dict.fg,            "NONE")
 call <SID>set_hi("CursorLine",       g:color_dict.none,         g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("CursorLineNr",     g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
-call <SID>set_hi("DiffAdd",          g:color_dict.fg,           g:color_dict.dark_green,    "bold")
 call <SID>set_hi("DiffDelete",       g:color_dict.dark_red,     g:color_dict.none,          "NONE")
 call <SID>set_hi("Directory",        g:color_dict.dark_magenta, g:color_dict.none,          "NONE")
 call <SID>set_hi("EndOfBuffer",      g:color_dict.bg,           g:color_dict.bg,            "NONE")
-call <SID>set_hi("ErrorMsg",         g:color_dict.fg,           g:color_dict.dark_red,      "NONE")
 call <SID>set_hi("Folded",           g:color_dict.light_yellow, g:color_dict.bg,            "NONE")
 call <SID>set_hi("LineNr",           g:color_dict.dark_gray,    g:color_dict.bg,            "NONE")
 call <SID>set_hi("NormalFloat",      g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
@@ -57,9 +54,26 @@ call <SID>set_hi("Label",        g:color_dict.light_blue,    g:color_dict.none, 
 call <SID>set_hi("Number",       g:color_dict.light_yellow,  g:color_dict.none, "NONE")
 call <SID>set_hi("Include",      g:color_dict.dark_blue,     g:color_dict.none, "NONE")
 
+if &bg == "light"
+  call <SID>set_hi("WarningMsg",        g:color_dict.bg, g:color_dict.light_red,  "NONE")
+  call <SID>set_hi("ErrorMsg",          g:color_dict.bg, g:color_dict.dark_red,   "NONE")
+  call <SID>set_hi("DiffAdd",           g:color_dict.bg, g:color_dict.dark_green, "bold")
+  call <SID>set_hi("StatusLine",        g:color_dict.bg, g:color_dict.dark_gray,  "bold")
+  call <SID>set_hi("NvimInternalError", g:color_dict.bg, g:color_dict.dark_red,   "NONE")
+else
+  call <SID>set_hi("WarningMsg",        g:color_dict.fg, g:color_dict.light_red,  "NONE")
+  call <SID>set_hi("ErrorMsg",          g:color_dict.fg, g:color_dict.dark_red,   "NONE")
+  call <SID>set_hi("DiffAdd",           g:color_dict.fg, g:color_dict.dark_green, "bold")
+  call <SID>set_hi("StatusLine",        g:color_dict.fg, g:color_dict.dark_gray,  "bold")
+  call <SID>set_hi("NvimInternalError", g:color_dict.fg, g:color_dict.dark_red,   "NONE")
+endif
+
+hi! link NvimFigureBrace NvimInternalError
+hi! link NvimSingleQuotedUnknownEscape NvimInternalError
+hi! link NvimInvalidSingleQuotedUnknownEscape NvimInternalError
+
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
-hi! link WarningMsg ErrorMsg
 hi! link Boolean Directory
 hi! link StatusLineNC CocFloating
 hi! link PreProc Function

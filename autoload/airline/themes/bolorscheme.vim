@@ -8,8 +8,8 @@ let s:highlight = s:dic.highlight[s:idx]
 let s:light_gray = s:dic.light_gray[s:idx]
 
 " ----- Generic
-let s:warning = [ s:bg, s:dic.light_red[s:idx], 85,  234 ]
-let s:error = [ s:bg, s:dic.dark_red[s:idx], 85,  234 ]
+let s:warning = [ s:bg, s:dic.dark_yellow[s:idx], 85,  234 ]
+let s:error = [ s:bg, s:dic.dark_magenta[s:idx], 85,  234 ]
 
 " ----- Insert
 let s:a_normal = [ s:bg,                    s:dic.dark_green[s:idx],  17,  190 ]
@@ -20,8 +20,7 @@ let s:c_normal = [ s:dic.light_blue[s:idx], s:highlight,              85,  234 ]
 let g:airline#themes#bolorscheme#palette.normal = airline#themes#generate_color_map(s:a_normal, s:b_normal, s:c_normal)
 let g:airline#themes#bolorscheme#palette.normal.airline_warning = s:warning
 let g:airline#themes#bolorscheme#palette.normal.airline_error = s:error
-let g:airline#themes#bolorscheme#palette.normal_modified =
-      \ { 'airline_c': [ s:dic.light_blue[s:idx], s:highlight, 255, 53, ''] }
+let g:airline#themes#bolorscheme#palette.normal_modified = g:airline#themes#bolorscheme#palette.normal
 
 
 " ----- Insert
@@ -32,7 +31,7 @@ let s:c_insert = [ s:dic.light_blue[s:idx], s:highlight,             15,  17 ]
 let g:airline#themes#bolorscheme#palette.insert = airline#themes#generate_color_map(s:a_insert, s:b_insert, s:c_insert)
 let g:airline#themes#bolorscheme#palette.insert.airline_warning = s:warning
 let g:airline#themes#bolorscheme#palette.insert.airline_error = s:error
-let g:airline#themes#bolorscheme#palette.insert_modified = g:airline#themes#bolorscheme#palette.normal_modified
+let g:airline#themes#bolorscheme#palette.insert_modified = g:airline#themes#bolorscheme#palette.insert
 let g:airline#themes#bolorscheme#palette.insert_paste =
       \ { 'airline_a': [ s:a_insert[0], s:dic.dark_cyan[s:idx], s:a_insert[2], 172, '' ] }
 
@@ -45,7 +44,7 @@ let s:c_replace = [ s:dic.light_blue[s:idx], s:highlight,            85,  234 ]
 let g:airline#themes#bolorscheme#palette.replace = airline#themes#generate_color_map(s:a_replace, s:b_replace, s:c_replace)
 let g:airline#themes#bolorscheme#palette.replace.airline_warning = s:warning
 let g:airline#themes#bolorscheme#palette.replace.airline_error = s:error
-let g:airline#themes#bolorscheme#palette.replace_modified = g:airline#themes#bolorscheme#palette.normal_modified
+let g:airline#themes#bolorscheme#palette.replace_modified = g:airline#themes#bolorscheme#palette.replace
 
 
 " ----- Visual
@@ -56,16 +55,21 @@ let s:c_visual = [ s:dic.light_blue[s:idx], s:highlight,                15,  52 
 let g:airline#themes#bolorscheme#palette.visual = airline#themes#generate_color_map(s:a_visual, s:b_visual, s:c_visual)
 let g:airline#themes#bolorscheme#palette.visual.airline_warning = s:warning
 let g:airline#themes#bolorscheme#palette.visual.airline_error = s:error
-let g:airline#themes#bolorscheme#palette.visual_modified = g:airline#themes#bolorscheme#palette.normal_modified
+let g:airline#themes#bolorscheme#palette.visual_modified = g:airline#themes#bolorscheme#palette.visual
 
 
 " ----- Inactive
-let s:a_inactive = [ s:fg,                    s:dic.dark_gray[s:idx], 239, 234, '' ]
-let s:b_inactive = [ s:fg,                    s:highlight,            239, 235, '' ]
-let s:c_inactive = [ s:dic.light_blue[s:idx], s:highlight,            239, 236, '' ]
+if &bg == "light"
+  let s:a_inactive = [ s:bg, s:dic.dark_gray[s:idx], 239, 234, '' ]
+  let s:b_inactive = [ s:bg, s:highlight,            239, 235, '' ]
+else
+  let s:a_inactive = [ s:bg, s:dic.dark_gray[s:idx], 239, 234, '' ]
+  let s:b_inactive = [ s:bg, s:highlight,            239, 235, '' ]
+endif
+let s:c_inactive = [ s:dic.light_blue[s:idx], s:highlight, 239, 236, '' ]
 
 let g:airline#themes#bolorscheme#palette.inactive = airline#themes#generate_color_map(s:a_inactive, s:b_inactive, s:c_inactive)
-let g:airline#themes#bolorscheme#palette.inactive_modified = g:airline#themes#bolorscheme#palette.normal_modified
+let g:airline#themes#bolorscheme#palette.inactive_modified = g:airline#themes#bolorscheme#palette.inactive
 
 
 " ----- Command
