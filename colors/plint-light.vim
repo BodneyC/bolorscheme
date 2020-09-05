@@ -10,9 +10,9 @@ let g:colors_name = "plint-light"
 
 let g:color_dict = {
       \ "none"          : ["NONE", "NONE"],
-      \ "off_bg"        : ["NONE", "#bbdddd"],
+      \ "off_bg"        : ["NONE", "#f5ffff"],
       \ "highlight"     : ["NONE", "#99bbbb"],
-      \ "bg"            : [0,      "#ddffff"],
+      \ "bg"            : [0,      "#efffff"],
       \ "fg"            : [7,      "#000000"],
       \
       \ "light_red"     : [1,      "#881111"],
@@ -29,7 +29,7 @@ let g:color_dict = {
       \ "dark_blue"     : [11,     "#111166"],
       \ "dark_magenta"  : [16,     "#661166"],
       \ "dark_cyan"     : [14,     "#116666"],
-      \ "dark_gray"     : [16,     "#666666"],
+      \ "dark_gray"     : [16,     "#7f7f7f"],
       \ }
 
 exe 'so ' . fnamemodify(expand('<sfile>'), ':p:h') . '/' . 'scheme.vim'

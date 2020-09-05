@@ -15,7 +15,7 @@ endfunction
 
 function! bolorscheme#generate#alacritty()
   let l:config = [
-        \ "colors:",
+        \ g:colors_name . ": &" . g:colors_name,
         \ "  primary:",
         \ "    background: '" . <SID>hash_replace(g:color_dict.bg[s:idx]) . "'",
         \ "    foreground: '" . <SID>hash_replace(g:color_dict.fg[s:idx]) . "'",
