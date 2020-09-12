@@ -11,7 +11,7 @@ let g:colors_name = "plint-light"
 let g:color_dict = {
       \ "none"          : ["NONE", "NONE"],
       \ "off_bg"        : ["NONE", "#f5ffff"],
-      \ "highlight"     : ["NONE", "#99bbbb"],
+      \ "highlight"     : ["NONE", "#cceeee"],
       \ "bg"            : [0,      "#efffff"],
       \ "fg"            : [7,      "#000000"],
       \
