@@ -56,21 +56,25 @@ call <SID>set_hi("Include",      g:color_dict.dark_blue,     g:color_dict.none, 
 
 if &bg == "light"
   call <SID>set_hi("WarningMsg",        g:color_dict.bg, g:color_dict.light_red,  "NONE")
-  call <SID>set_hi("ErrorMsg",          g:color_dict.bg, g:color_dict.dark_red,   "NONE")
+  call <SID>set_hi("Error",             g:color_dict.bg, g:color_dict.dark_red,   "NONE")
   call <SID>set_hi("DiffAdd",           g:color_dict.bg, g:color_dict.dark_green, "bold")
   call <SID>set_hi("StatusLine",        g:color_dict.bg, g:color_dict.dark_gray,  "bold")
-  call <SID>set_hi("NvimInternalError", g:color_dict.bg, g:color_dict.dark_red,   "NONE")
+  call <SID>set_hi("NvimInternal",      g:color_dict.bg, g:color_dict.dark_red,   "NONE")
 else
   call <SID>set_hi("WarningMsg",        g:color_dict.fg, g:color_dict.light_red,  "NONE")
-  call <SID>set_hi("ErrorMsg",          g:color_dict.fg, g:color_dict.dark_red,   "NONE")
+  call <SID>set_hi("Error",             g:color_dict.fg, g:color_dict.dark_red,   "NONE")
   call <SID>set_hi("DiffAdd",           g:color_dict.fg, g:color_dict.dark_green, "bold")
   call <SID>set_hi("StatusLine",        g:color_dict.fg, g:color_dict.dark_gray,  "bold")
-  call <SID>set_hi("NvimInternalError", g:color_dict.fg, g:color_dict.dark_red,   "NONE")
+  call <SID>set_hi("NvimInternal",      g:color_dict.fg, g:color_dict.dark_red,   "NONE")
 endif
 
-hi! link NvimFigureBrace NvimInternalError
-hi! link NvimSingleQuotedUnknownEscape NvimInternalError
-hi! link NvimInvalidSingleQuotedUnknownEscape NvimInternalError
+hi! link ErrorMsg Error
+hi! link NvimInvalid NvimInternal
+hi! link NvimInternalError NvimInternal
+hi! link NvimFigureBrace NvimInternal
+hi! link NvimSingleQuotedUnknownEscape NvimInternal
+hi! link NvimInvalidSingleQuotedUnknownEscape NvimInternal
+hi! link RedrawDebugRecompose NvimInternal
 
 hi! link CursorColumn CursorLine
 hi! link ColorColumn CursorLine
