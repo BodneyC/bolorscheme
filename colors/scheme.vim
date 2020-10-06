@@ -33,7 +33,7 @@ call <SID>set_hi("SyntasticWarning", g:color_dict.bg,           g:color_dict.lig
 call <SID>set_hi("TabLineSel",       g:color_dict.light_cyan,   g:color_dict.bg,            "NONE")
 call <SID>set_hi("VertSplit",        g:color_dict.highlight,    g:color_dict.highlight,     "NONE")
 call <SID>set_hi("EndOfBufferWinHl", g:color_dict.off_bg,       g:color_dict.off_bg,        "NONE")
-call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.dark_gray,     "NONE")
+call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.off_bg,     "NONE")
 
 " Code but consistent
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
@@ -54,19 +54,19 @@ call <SID>set_hi("Label",        g:color_dict.light_blue,    g:color_dict.none, 
 call <SID>set_hi("Number",       g:color_dict.light_yellow,  g:color_dict.none, "NONE")
 call <SID>set_hi("Include",      g:color_dict.dark_blue,     g:color_dict.none, "NONE")
 
-if &bg == "light"
+" if &bg == "light"
   call <SID>set_hi("WarningMsg",        g:color_dict.bg, g:color_dict.light_red,  "NONE")
   call <SID>set_hi("Error",             g:color_dict.bg, g:color_dict.dark_red,   "NONE")
   call <SID>set_hi("DiffAdd",           g:color_dict.bg, g:color_dict.dark_green, "bold")
   call <SID>set_hi("StatusLine",        g:color_dict.bg, g:color_dict.dark_gray,  "bold")
   call <SID>set_hi("NvimInternal",      g:color_dict.bg, g:color_dict.dark_red,   "NONE")
-else
-  call <SID>set_hi("WarningMsg",        g:color_dict.fg, g:color_dict.light_red,  "NONE")
-  call <SID>set_hi("Error",             g:color_dict.fg, g:color_dict.dark_red,   "NONE")
-  call <SID>set_hi("DiffAdd",           g:color_dict.fg, g:color_dict.dark_green, "bold")
-  call <SID>set_hi("StatusLine",        g:color_dict.fg, g:color_dict.dark_gray,  "bold")
-  call <SID>set_hi("NvimInternal",      g:color_dict.fg, g:color_dict.dark_red,   "NONE")
-endif
+" else
+"   call <SID>set_hi("WarningMsg",        g:color_dict.fg, g:color_dict.light_red,  "NONE")
+"   call <SID>set_hi("Error",             g:color_dict.bg, g:color_dict.light_red,   "NONE")
+"   call <SID>set_hi("DiffAdd",           g:color_dict.fg, g:color_dict.dark_green, "bold")
+"   call <SID>set_hi("StatusLine",        g:color_dict.fg, g:color_dict.dark_gray,  "bold")
+"   call <SID>set_hi("NvimInternal",      g:color_dict.fg, g:color_dict.dark_red,   "NONE")
+" endif
 
 hi! link ErrorMsg Error
 hi! link NvimInvalid NvimInternal

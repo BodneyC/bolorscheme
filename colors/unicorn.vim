@@ -12,7 +12,7 @@ let g:color_dict = {
       \ "bg"            : [234, "#292429"],
       \ "off_bg"        : [235, "#3a353a"],
       \ "highlight"     : [236, "#403a3a"],
-      \ "dark_gray"     : [246, "#928c92"],
+      \ "dark_gray"     : [246, "#928ca2"],
       \ "light_gray"    : [251, "#ccc9cc"],
       \ "fg"            : [231, "#fff8fc"],
       \                                  

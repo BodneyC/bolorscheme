@@ -63,8 +63,8 @@ if &bg == "light"
   let s:a_inactive = [ s:bg, s:dic.dark_gray[s:idx], 239, 234, '' ]
   let s:b_inactive = [ s:bg, s:highlight,            239, 235, '' ]
 else
-  let s:a_inactive = [ s:bg, s:dic.dark_gray[s:idx], 239, 234, '' ]
-  let s:b_inactive = [ s:bg, s:highlight,            239, 235, '' ]
+  let s:a_inactive = [ s:bg, s:dic.light_gray[s:idx], 239, 234, '' ]
+  let s:b_inactive = [ s:fg, s:highlight,            239, 235, '' ]
 endif
 let s:c_inactive = [ s:dic.light_blue[s:idx], s:highlight, 239, 236, '' ]
 
