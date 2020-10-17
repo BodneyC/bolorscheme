@@ -33,7 +33,7 @@ call <SID>set_hi("SyntasticWarning", g:color_dict.bg,           g:color_dict.lig
 call <SID>set_hi("TabLineSel",       g:color_dict.light_cyan,   g:color_dict.bg,            "NONE")
 call <SID>set_hi("VertSplit",        g:color_dict.highlight,    g:color_dict.highlight,     "NONE")
 call <SID>set_hi("EndOfBufferWinHl", g:color_dict.off_bg,       g:color_dict.off_bg,        "NONE")
-call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.off_bg,     "NONE")
+call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.dark_gray,     "NONE")
 
 " Code but consistent
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
