@@ -25,15 +25,18 @@ call <SID>set_hi("DiffDelete",       g:color_dict.dark_red,     g:color_dict.non
 call <SID>set_hi("Directory",        g:color_dict.dark_magenta, g:color_dict.none,          "NONE")
 call <SID>set_hi("EndOfBuffer",      g:color_dict.bg,           g:color_dict.bg,            "NONE")
 call <SID>set_hi("Folded",           g:color_dict.light_yellow, g:color_dict.bg,            "NONE")
-call <SID>set_hi("LineNr",           g:color_dict.dark_gray,    g:color_dict.bg,            "NONE")
+call <SID>set_hi("LineNr",           g:color_dict.light_gray,   g:color_dict.bg,            "NONE")
 call <SID>set_hi("NormalFloat",      g:color_dict.fg,           g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("IncSearch",        g:color_dict.bg,           g:color_dict.light_yellow,  "NONE")
 call <SID>set_hi("SyntasticError",   g:color_dict.bg,           g:color_dict.light_magenta, "NONE")
 call <SID>set_hi("SyntasticWarning", g:color_dict.bg,           g:color_dict.light_blue,    "NONE")
-call <SID>set_hi("TabLineSel",       g:color_dict.light_cyan,   g:color_dict.bg,            "NONE")
+call <SID>set_hi("TabLine",          g:color_dict.light_cyan,   g:color_dict.bg,            "italic")
+call <SID>set_hi("TabLineFill",      g:color_dict.none,         g:color_dict.bg,            "italic")
+call <SID>set_hi("TabLineSel",       g:color_dict.dark_cyan,    g:color_dict.bg,            "italic")
 call <SID>set_hi("VertSplit",        g:color_dict.highlight,    g:color_dict.highlight,     "NONE")
 call <SID>set_hi("EndOfBufferWinHl", g:color_dict.off_bg,       g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.dark_gray,     "NONE")
+call <SID>set_hi("BufferInactive",   g:color_dict.light_gray,   g:color_dict.bg,            "italic")
 
 " Code but consistent
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
@@ -186,6 +189,24 @@ hi! link jsBraces Function
 hi! link jsGlobalObjects Number
 
 hi! link vimUserFunc Function
+
+hi! link BufferCurrent       TabLine
+hi! link BufferCurrentMod    TabLine
+hi! link BufferCurrentSign   TabLine
+hi! link BufferCurrentTarget TabLine
+
+" For https://github.com/romgrk/barbar.nvim
+hi! link BufferVisible       TabLineSel
+hi! link BufferVisibleMod    TabLineSel
+hi! link BufferVisibleSign   TabLineSel
+hi! link BufferVisibleTarget TabLineSel
+
+" hi! link BufferInactive       LineNr
+hi! link BufferInactiveMod    BufferInactive
+hi! link BufferInactiveSign   BufferInactive
+hi! link BufferInactiveTarget BufferInactive
+
+hi! link BufferShadow Pmenu
 
 " https:color_dict.//github.com/kien/rainbow_parentheses.vim
 if !exists("g:rbpt_colorpairs")
