@@ -34,10 +34,10 @@ call <SID>set_hi("VertSplit",        g:color_dict.highlight,    g:color_dict.hig
 call <SID>set_hi("EndOfBufferWinHl", g:color_dict.off_bg,       g:color_dict.off_bg,        "NONE")
 call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.dark_gray,     "NONE")
 
-call <SID>set_hi("TabLine",        g:color_dict.light_green, g:color_dict.off_bg, "italic")
-call <SID>set_hi("TabLineFill",    g:color_dict.none,        g:color_dict.off_bg, "italic")
-call <SID>set_hi("TabLineSel",     g:color_dict.dark_red,    g:color_dict.off_bg, "italic")
-call <SID>set_hi("BufferInactive", g:color_dict.light_gray,  g:color_dict.off_bg, "italic")
+call <SID>set_hi("TabLine",        g:color_dict.light_green, g:color_dict.bg, "italic")
+call <SID>set_hi("TabLineFill",    g:color_dict.none,        g:color_dict.bg, "italic")
+call <SID>set_hi("TabLineSel",     g:color_dict.dark_red,    g:color_dict.bg, "italic")
+call <SID>set_hi("BufferInactive", g:color_dict.light_gray,  g:color_dict.bg, "italic")
 
 " Code but consistent
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
@@ -207,7 +207,7 @@ hi! link BufferInactiveMod    BufferInactive
 hi! link BufferInactiveSign   BufferInactive
 hi! link BufferInactiveTarget BufferInactive
 
-hi! link BufferShadow Pmenu
+hi! link BufferShadow TabLineFill
 
 " https:color_dict.//github.com/kien/rainbow_parentheses.vim
 if !exists("g:rbpt_colorpairs")
