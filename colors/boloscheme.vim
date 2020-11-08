@@ -32,3 +32,5 @@ let g:colors_name = "bolorscheme"
 "       \ }
 
 exe 'so ' . fnamemodify(expand('<sfile>'), ':p:h') . '/' . 'scheme.vim'
+
+let g:niji_bolorscheme_colours = g:niji_bolorscheme_colours

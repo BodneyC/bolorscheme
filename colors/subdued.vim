@@ -32,3 +32,5 @@ let g:color_dict = {
       \ }
 
 exe 'so ' . fnamemodify(expand('<sfile>'), ':p:h') . '/' . 'scheme.vim'
+
+let g:niji_subdued_colours = g:niji_bolorscheme_colours

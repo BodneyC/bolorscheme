@@ -218,3 +218,22 @@ if !exists("g:rbpt_colorpairs")
         \ g:color_dict.light_green, g:color_dict.light_blue, g:color_dict.dark_magenta, g:color_dict.light_magenta,
         \ ]
 endif
+
+let g:niji_bolorscheme_colours = {
+      \  'dark_colours': [
+      \    g:color_dict.dark_red,
+      \    g:color_dict.dark_green,
+      \    g:color_dict.dark_yellow,
+      \    g:color_dict.dark_blue,
+      \    g:color_dict.dark_magenta,
+      \    g:color_dict.dark_cyan,
+      \  ],
+      \  'light_colours': [
+      \    g:color_dict.light_red,
+      \    g:color_dict.light_green,
+      \    g:color_dict.light_yellow,
+      \    g:color_dict.light_blue,
+      \    g:color_dict.light_magenta,
+      \    g:color_dict.light_cyan,
+      \  ],
+      \ }
