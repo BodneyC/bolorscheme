@@ -37,7 +37,6 @@ call <SID>set_hi("Visual",           g:color_dict.none,         g:color_dict.hig
 call <SID>set_hi("TabLine",        g:color_dict.light_green, g:color_dict.bg, "italic")
 call <SID>set_hi("TabLineFill",    g:color_dict.none,        g:color_dict.bg, "italic")
 call <SID>set_hi("TabLineSel",     g:color_dict.dark_blue,   g:color_dict.bg, "italic")
-call <SID>set_hi("BufferInactive", g:color_dict.light_gray,  g:color_dict.bg, "italic")
 
 " Code but consistent
 call <SID>set_hi("Todo",       g:color_dict.light_yellow, g:color_dict.bg,        "bold")
@@ -191,19 +190,22 @@ hi! link jsGlobalObjects Number
 
 hi! link vimUserFunc Function
 
-hi! link BufferCurrent       TabLine
-hi! link BufferCurrentMod    TabLine
-hi! link BufferCurrentSign   TabLine
-hi! link BufferCurrentTarget TabLine
+" Barbar
+
+call <SID>set_hi("BufferCurrent",    g:color_dict.light_green, g:color_dict.highlight, "italic")
+call <SID>set_hi("BufferCurrentMod", g:color_dict.light_red,   g:color_dict.highlight, "italic")
+hi! link BufferCurrentSign   BufferCurrent
+hi! link BufferCurrentTarget BufferCurrent
 
 " For https://github.com/romgrk/barbar.nvim
-hi! link BufferVisible       TabLineSel
-hi! link BufferVisibleMod    TabLineSel
-hi! link BufferVisibleSign   TabLineSel
-hi! link BufferVisibleTarget TabLineSel
+call <SID>set_hi("BufferVisible",    g:color_dict.dark_blue, g:color_dict.bg, "italic")
+call <SID>set_hi("BufferVisibleMod", g:color_dict.light_red, g:color_dict.bg, "italic")
+hi! link BufferVisibleSign   BufferVisible
+hi! link BufferVisibleTarget BufferVisible
 
 " hi! link BufferInactive       LineNr
-hi! link BufferInactiveMod    BufferInactive
+call <SID>set_hi("BufferInactive",    g:color_dict.dark_gray, g:color_dict.bg, "italic")
+call <SID>set_hi("BufferInactiveMod", g:color_dict.light_red, g:color_dict.bg, "italic")
 hi! link BufferInactiveSign   BufferInactive
 hi! link BufferInactiveTarget BufferInactive
 
