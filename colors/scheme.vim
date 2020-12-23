@@ -71,6 +71,7 @@ call <SID>set_hi("Include",      g:color_dict.dark_blue,     g:color_dict.none, 
 "   call <SID>set_hi("NvimInternal",      g:color_dict.fg, g:color_dict.dark_red,   "NONE")
 " endif
 
+hi! link NonText TabLineSel
 hi! link ErrorMsg Error
 hi! link NvimInvalid NvimInternal
 hi! link NvimInternalError NvimInternal
