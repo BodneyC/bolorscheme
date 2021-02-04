@@ -1,11 +1,17 @@
 let s:idx = &t_Co > 2 || has("gui_running")
 let s:color_plane = ["cterm", "gui"]
 
+let s:guisp = " "
+if s:idx == 1
+  let s:guisp .= "guisp=" . g:color_dict.light_red[s:idx]
+endif
+
 func! <SID>set_hi(group, fg, bg, style)
   exe "hi " . a:group .
         \ " " . s:color_plane[s:idx] . "fg=" . a:fg[s:idx] .
         \ " " . s:color_plane[s:idx] . "bg=" . a:bg[s:idx] .
-        \ " " . s:color_plane[s:idx] . "="   . a:style
+        \ " " . s:color_plane[s:idx] . "="   . a:style .
+        \ s:guisp
 endfunc
 
 " UI
