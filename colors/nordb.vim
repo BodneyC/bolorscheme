@@ -9,7 +9,7 @@ let g:colors_name = "nordb"
 
 let g:color_dict = {
       \ "none"          : ["NONE", "NONE"],
-      \ "bg"            : [234, "#2E3440"],
+      \ "bg"            : [234, "#272C37"],
       \ "off_bg"        : [235, "#343B4A"],
       \ "highlight"     : [236, "#3B4252"],
       \ "dark_gray"     : [246, "#6F788A"],
