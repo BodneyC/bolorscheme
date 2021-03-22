@@ -114,6 +114,13 @@ hi! link CocGitChangedSign GitGutterChange
 hi! link CocGitChangeRemovedSign GitGutterChangeDelete
 hi! link CocGitRemovedSign GitGutterDelete
 
+hi! link GitSignsAdd GitGutterAdd
+hi! link GitSignsChange GitGutterChange
+hi! link GitSignsChangeDelete GitGutterChangeDelete
+hi! link GitSignsAddNr GitSignsAdd
+hi! link GitSignsChangeNr GitSignsChange
+hi! link GitSignsChangeDeleteNr GitSignsChangeDelete
+
 hi! link CocHighlightText MatchParen
 
 " -s- Diagnostics stuff
