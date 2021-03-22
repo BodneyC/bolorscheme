@@ -120,6 +120,9 @@ hi! link GitSignsChangeDelete GitGutterChangeDelete
 hi! link GitSignsAddNr GitSignsAdd
 hi! link GitSignsChangeNr GitSignsChange
 hi! link GitSignsChangeDeleteNr GitSignsChangeDelete
+hi! link GitSignsAddLn GitSignsAdd
+hi! link GitSignsChangeLn GitSignsChange
+hi! link GitSignsChangeDeleteLn GitSignsChangeDelete
 
 hi! link CocHighlightText MatchParen
 
