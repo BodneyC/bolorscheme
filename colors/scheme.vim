@@ -69,6 +69,7 @@ call <SID>set_hi("Include",      g:color_dict.dark_blue,     g:color_dict.none, 
   call <SID>set_hi("DiffAdd",           g:color_dict.bg, g:color_dict.dark_green, "bold")
   call <SID>set_hi("StatusLine",        g:color_dict.bg, g:color_dict.dark_gray,  "bold")
   call <SID>set_hi("NvimInternal",      g:color_dict.bg, g:color_dict.dark_red,   "NONE")
+
 " else
 "   call <SID>set_hi("WarningMsg",        g:color_dict.fg, g:color_dict.light_red,  "NONE")
 "   call <SID>set_hi("Error",             g:color_dict.bg, g:color_dict.light_red,   "NONE")
@@ -162,6 +163,10 @@ hi! link CocWarningFloat CocFloating
 hi! link LspDiagnosticsWarning Directory
 hi! link LspDiagnosticsWarningSign Directory
 hi! link LspDiagnosticsWarningFloating CocFloating
+
+call <SID>set_hi("IndentBlanklineChar", g:color_dict.off_bg, g:color_dict.none, "NONE")
+hi! link IndentBlanklineSpaceChar IndentBlanklineChar
+hi! link IndentBlanklineSpaceCharBlankline IndentBlanklineChar
 
 " -e-
 
