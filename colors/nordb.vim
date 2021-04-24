@@ -26,7 +26,7 @@ let g:color_dict = {
       \ "dark_red"      : [131, "#88C0D0"],
       \ "dark_green"    : [042, "#A3BE8C"],
       \ "dark_yellow"   : [148, "#E6C582"],
-      \ "dark_blue"     : [067, "#E5E9F0"],
+      \ "dark_blue"     : [067, "#D5DCE8"],
       \ "dark_magenta"  : [096, "#81A1C1"],
       \ "dark_cyan"     : [036, "#83B3B1"],
       \ }
