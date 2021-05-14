@@ -1,5 +1,6 @@
-BolorScheme
-===========
+<!-- markdownlint-disable MD013 -->
+
+# BolorScheme
 
 This is half a practical way to quickly set up a colorscheme and half a way to quickly test a colorscheme with the intent to tweak it and fine tune it later.
 
