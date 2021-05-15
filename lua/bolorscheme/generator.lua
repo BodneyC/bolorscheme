@@ -148,49 +148,51 @@ function M.generateThemeFromWal(name)
     table.insert(colors, l)
   end
   f:close()
+  print(vim.inspect(colors))
+  print(#colors)
   local cfg = [[return {
   none           = 'NONE',
-  comment        = ']] .. colors[8] .. [[',
+  comment        = ']] .. colors[9] .. [[',
 
-  bg             = ']] .. colors[0] .. [[',
-  bg_dark        = ']] .. colors[0] .. [[',
-  bg_highlight   = ']] .. colors[0] .. [[',
+  bg             = ']] .. colors[1] .. [[',
+  bg_dark        = ']] .. colors[1] .. [[',
+  bg_highlight   = ']] .. colors[1] .. [[',
 
-  fg             = ']] .. colors[7] .. [[',
-  fg_dark        = ']] .. colors[7] .. [[',
-  fg_highlight   = ']] .. colors[7] .. [[',
+  fg             = ']] .. colors[8] .. [[',
+  fg_dark        = ']] .. colors[8] .. [[',
+  fg_highlight   = ']] .. colors[8] .. [[',
 
-  terminal_black = ']] .. colors[0] .. [[',
-  highlight      = ']] .. colors[7] .. [[',
+  terminal_black = ']] .. colors[1] .. [[',
+  highlight      = ']] .. colors[8] .. [[',
 
   light          = {
-    red          = ']] .. colors[1] .. [[',
-    green        = ']] .. colors[2] .. [[',
-    yellow       = ']] .. colors[3] .. [[',
-    blue         = ']] .. colors[4] .. [[',
-    magenta      = ']] .. colors[5] .. [[',
-    cyan         = ']] .. colors[6] .. [[',
-    gray         = ']] .. colors[8] .. [[',
-    teal         = ']] .. colors[4] .. [[',
+    red          = ']] .. colors[2] .. [[',
+    green        = ']] .. colors[3] .. [[',
+    yellow       = ']] .. colors[4] .. [[',
+    blue         = ']] .. colors[5] .. [[',
+    magenta      = ']] .. colors[6] .. [[',
+    cyan         = ']] .. colors[7] .. [[',
+    gray         = ']] .. colors[9] .. [[',
+    teal         = ']] .. colors[5] .. [[',
   },
 
   dark           = {
-    red          = ']] .. colors[9] .. [[',
-    green        = ']] .. colors[10] .. [[',
-    yellow       = ']] .. colors[11] .. [[',
-    blue         = ']] .. colors[12] .. [[',
-    magenta      = ']] .. colors[13] .. [[',
-    cyan         = ']] .. colors[14] .. [[',
-    gray         = ']] .. colors[15] .. [[',
-    teal         = ']] .. colors[12] .. [[',
+    red          = ']] .. colors[10] .. [[',
+    green        = ']] .. colors[11] .. [[',
+    yellow       = ']] .. colors[12] .. [[',
+    blue         = ']] .. colors[13] .. [[',
+    magenta      = ']] .. colors[14] .. [[',
+    cyan         = ']] .. colors[15] .. [[',
+    gray         = ']] .. colors[16] .. [[',
+    teal         = ']] .. colors[13] .. [[',
   },
 
   git            = {
-    change       = ']] .. colors[1] .. [[',
-    add          = ']] .. colors[2] .. [[',
-    delete       = ']] .. colors[3] .. [[',
-    conflict     = ']] .. colors[4] .. [[',
-    text         = ']] .. colors[5] .. [[',
+    change       = ']] .. colors[2] .. [[',
+    add          = ']] .. colors[3] .. [[',
+    delete       = ']] .. colors[4] .. [[',
+    conflict     = ']] .. colors[5] .. [[',
+    text         = ']] .. colors[6] .. [[',
   },
 }]]
     write_to_tmp(cfg, 'wal', 'lua')

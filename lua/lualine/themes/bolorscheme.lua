@@ -1,6 +1,6 @@
 if not __BOLORSCHEME_CONFIG then
   print('Bolorscheme config not set')
-  return
+  return {}
 end
 
 local util = require('bolorscheme.util')
@@ -15,8 +15,8 @@ bolorscheme.normal = {
 }
 
 bolorscheme.insert = {
-  a = {bg = colors.green, fg = colors.black},
-  b = {bg = colors.fg_highlight, fg = colors.green},
+  a = {bg = colors.light.green, fg = colors.black},
+  b = {bg = colors.fg_highlight, fg = colors.light.green},
 }
 
 bolorscheme.command = {

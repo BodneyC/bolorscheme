@@ -1,0 +1,24 @@
+nord : &nord
+  primary:
+    background: 0x272c37
+    foreground: 0xe5e9f0
+  normal:
+
+    black:      0x6f788a
+    red:        0x88c0d0
+    green:      0x99b680
+    yellow:     0xb48ead
+    blue:       0xeceff4
+    magenta:    0x7698b9
+    cyan:       0x83b3b1
+    white:      0x636d81
+  bright:
+
+    black:      0x6f788a
+    red:        0x6E929C
+    green:      0x7AA0A2
+    yellow:     0xe6c582
+    blue:       0xd5dce8
+    magenta:    0x81a1c1
+    cyan:       0x83b3b1
+    white:      0x636d81

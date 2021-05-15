@@ -1,0 +1,24 @@
+tokyonight : &tokyonight
+  primary:
+    background: 0x24283b
+    foreground: 0xc0caf5
+  normal:
+
+    black:      0x545c7e
+    red:        0xf7768e
+    green:      0x9ece6a
+    yellow:     0xff9e64
+    blue:       0x89ddff
+    magenta:    0xbb9af7
+    cyan:       0x2ac3de
+    white:      0x737aa2
+  bright:
+
+    black:      0x545c7e
+    red:        0xdb4b4b
+    green:      0x73daca
+    yellow:     0xe0af68
+    blue:       0x7aa2f7
+    magenta:    0x9d7cd8
+    cyan:       0x7dcfff
+    white:      0x737aa2

@@ -20,6 +20,14 @@ function M.setup(conf)
   __BOLORSCHEME_CONFIG = config.opts
 end
 
+function M.print_config()
+  if not __BOLORSCHEME_CONFIG then
+    print 'Bolorscheme config not set'
+    return
+  end
+  print(vim.inspect(__BOLORSCHEME_CONFIG))
+end
+
 function M.generate(prg)
   local generator = require 'bolorscheme.generator'
   if prg:lower() == 'alacritty' then

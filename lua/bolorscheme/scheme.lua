@@ -126,8 +126,8 @@ function M.create(opts)
       htmlH2 = {fg = c.dark.blue, style = 'bold'},
 
       mkdHeading = {fg = c.light.yellow, style = 'bold'},
-      mkdCode = {bg = c.terminal_black, fg = c.fg},
-      mkdCodeDelimiter = {bg = c.terminal_black, fg = c.fg},
+      mkdCode = {fg = c.light.blue},
+      mkdCodeDelimiter = {fg = c.dark.blue},
       mkdCodeStart = {fg = c.light.teal, style = 'bold'},
       mkdCodeEnd = {fg = c.light.teal, style = 'bold'},
       mkdLink = {fg = c.dark.blue, style = 'underline'},

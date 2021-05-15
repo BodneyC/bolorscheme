@@ -1,0 +1,24 @@
+plint : &plint
+  primary:
+    background: 0x101211
+    foreground: 0xfff8fc
+  normal:
+
+    black:      0x928c92
+    red:        0xe6feff
+    green:      0xcbfcfe
+    yellow:     0xdeeae9
+    blue:       0xf7fffd
+    magenta:    0xd3ebe3
+    cyan:       0xebf0ee
+    white:      0xccc9cc
+  bright:
+
+    black:      0x928c92
+    red:        0xaec1c2
+    green:      0x91a19f
+    yellow:     0x99b49f
+    blue:       0xb0b5b4
+    magenta:    0x91a19c
+    cyan:       0xa2a6a4
+    white:      0xccc9cc
