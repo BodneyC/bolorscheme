@@ -325,7 +325,7 @@ function M.create(opts)
       BufferInactive = {fg = c.light.gray, bg = c.bg_dark},
 
       -- BufferCurrentIndex = {bg = c.bg},
-      -- BufferVisibleIndex = {bg = c.bg_dark},
+      BufferVisibleIndex = {bg = c.bg_dark},
       -- BufferInactiveIndex = {bg = c.bg_dark},
 
       BufferCurrentSign = {bg = c.bg, preserve = true},
@@ -333,17 +333,18 @@ function M.create(opts)
       BufferInactiveSign = {bg = c.bg_dark, preserve = true},
 
       -- BufferCurrentTarget = {bg = c.bg},
-      -- BufferVisibleTarget = {bg = c.bg_dark},
+      BufferVisibleTarget = {bg = c.bg_dark},
       -- BufferInactiveTarget = {bg = c.bg_dark},
 
       -- BufferCurrentMod = {fg = c.light_red, bg = c.bg},
-      -- BufferVisibleMod = {fg = c.light_red, bg = c.bg_dark},
+      BufferVisibleMod = {fg = c.light_red, bg = c.bg_dark},
       -- BufferInactiveMod = {fg = c.light_red, bg = c.bg_dark},
 
       -- BufferLineIndicatorSelected = {fg = c.git.change},
       -- BufferLineFill = {bg = c.black},
 
       DevIconDefault = {bg = c.none, preserve = true},
+      DevIconDefaultVisible = {bg = c.none, preserve = true},
       DevIconLuaVisible = {bg = c.none, preserve = true},
       DevIconVimVisible = {bg = c.none, preserve = true},
 
