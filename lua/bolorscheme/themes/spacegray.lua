@@ -8,7 +8,7 @@ return {
 
   fg = '#E3E8E3',
   fg_dark = '#CCD9CC',
-  fg_highlight = '#6E707F',
+  fg_highlight = '#414353',
 
   terminal_black = '#1A1A1D',
   highlight = '#516F77',
