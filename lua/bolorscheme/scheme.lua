@@ -372,6 +372,7 @@ function M.create(opts)
 
       -- Spelunker
       SpelunkerSpellBad = {sp = c.error, style = 'undercurl'},
+      SpelunkerComplexOrCompoundWord = {sp = c.error, style = 'undercurl'},
 
       -- CleverF
       CleverFChar = {fg = c.error}, -- error messages on the command line
