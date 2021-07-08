@@ -20,19 +20,19 @@ return {
     teal = '#139178',
     magenta = '#9F7AA5',
     yellow = '#E9A96F',
-    green = '#A2A565',
+    green = '#A1A470',
     red = '#BF6262',
   },
 
   dark = {
-    gray = '#707273',
-    blue = '#688B9D',
-    cyan = '#537E7A',
-    teal = '#40A0B1',
-    magenta = '#8F6A95',
-    yellow = '#D9995F',
-    green = '#929555',
-    red = '#AF5252',
+    gray = '#797A7A',
+    blue = '#788E99',
+    cyan = '#657C7A',
+    teal = '#56A1AE',
+    magenta = '#927C96',
+    yellow = '#D8AF8A',
+    green = '#C5C37E',
+    red = '#AB6B6B',
   },
 
   git = {
