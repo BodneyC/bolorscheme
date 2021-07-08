@@ -343,10 +343,13 @@ function M.create(opts)
       -- BufferLineIndicatorSelected = {fg = c.git.change},
       -- BufferLineFill = {bg = c.black},
 
-      DevIconDefault = {bg = c.none, preserve = true},
-      DevIconDefaultVisible = {bg = c.none, preserve = true},
-      DevIconLuaVisible = {bg = c.none, preserve = true},
-      DevIconVimVisible = {bg = c.none, preserve = true},
+      -- DevIconDefault = {bg = c.none, preserve = true},
+      -- DevIconDefaultVisible = {bg = c.fg, preserve = true},
+      -- DevIconDefaultCurrent = {bg = c.none, preserve = true},
+      -- DevIconLuaVisible = {bg = c.none, preserve = true},
+      -- DevIconLuaInactive = {bg = c.none, preserve = true},
+      -- DevIconLuaCurrent = {bg = c.none, preserve = true},
+      -- DevIconVimVisible = {bg = c.none, preserve = true},
 
       -- Sneak
       Sneak = {fg = c.bg_highlight, bg = c.light.magenta},
@@ -362,9 +365,19 @@ function M.create(opts)
       IndentBlanklineChar = {fg = c.bg_highlight},
       IndentBlanklineSpaceChar = {fg = c.bg_highlight},
       IndentBlanklineSpaceCharBlankline = {fg = c.bg_highlight},
+
+      -- Vim_Current_Word
+      CurrentWord = {bg = c.bg_search, fg = c.fg},
+      CurrentWordTwins = {bg = c.bg_dark, style = 'bold'},
+
+      -- Spelunker
+      SpelunkerSpellBad = {sp = c.error, style = 'undercurl'},
+
+      -- CleverF
+      CleverFChar = {fg = c.error}, -- error messages on the command line
+      CleverFCursor = {fg = c.error}, -- error messages on the command line
     },
   }
 end
 
 return M
-
