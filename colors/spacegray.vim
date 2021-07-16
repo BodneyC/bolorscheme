@@ -1,1 +1,1 @@
-lua require'bolorscheme'.setup {theme='spacegray'}
+lua require'bolorscheme'.setup {theme='spacegray', bg_preserve=true}

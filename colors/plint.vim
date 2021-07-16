@@ -1,1 +1,1 @@
-lua require'bolorscheme'.setup {theme='plint'}
+lua require'bolorscheme'.setup {theme='plint', bg_preserve=true}

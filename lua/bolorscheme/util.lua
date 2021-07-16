@@ -1,8 +1,6 @@
 -- stolen from https://github.com/folke/tokyonight.nvim/blob/main/lua/tokyonight/util.lua
 local hsluv = require('bolorscheme.hsluv')
 
-local colors_name = nil
-
 local M = {}
 
 M.colorCache = {}
@@ -71,36 +69,32 @@ function M.getColor(color)
 end
 
 function M.highlight(group, color)
-  local style = color.style and 'gui=' .. color.style or 'gui=NONE'
-  local fg = color.fg and 'guifg=' .. M.getColor(color.fg) or (color.preserve and '' or 'guifg=NONE')
-  local bg = color.bg and 'guibg=' .. M.getColor(color.bg) or (color.preserve and '' or 'guibg=NONE')
-  local sp = color.sp and 'guisp=' .. M.getColor(color.sp) or ''
-
-  local hl = 'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' .. sp
-
   if color.link then
     vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
   else
+    local style = color.style and 'gui=' .. color.style or 'gui=NONE'
+    local fg = color.fg and 'guifg=' .. M.getColor(color.fg) or
+                   (color.preserve and '' or 'guifg=NONE')
+    local bg = color.bg and 'guibg=' .. M.getColor(color.bg) or
+                   (color.preserve and '' or 'guibg=NONE')
+    local sp = color.sp and 'guisp=' .. M.getColor(color.sp) or ''
+
+    local hl = 'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' .. sp
+
     vim.cmd(hl)
   end
 end
 
-function M.onColorScheme()
-  if vim.g.colors_name ~= colors_name then
-    vim.cmd([[autocmd! Bolorscheme]])
-    vim.cmd([[augroup! Bolorscheme]])
-  end
-end
-
 function M.autocmds(config)
-  vim.cmd([[augroup Bolorscheme]])
-  vim.cmd([[  autocmd!]])
-  vim.cmd([[  autocmd ColorScheme * lua require'bolorscheme.util'.onColorScheme()]])
+  vim.cmd([[
+    augroup Bolorscheme
+    autocmd!
+  ]])
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == 'terminal' then
-      vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd([[autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     else
-      vim.cmd([[  autocmd FileType ]] .. sidebar ..
+      vim.cmd([[autocmd FileType ]] .. sidebar ..
                   [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     end
   end
@@ -140,9 +134,7 @@ function M.terminal(colors)
   vim.g.terminal_color_14 = colors.dark.cyan
 
   if vim.o.background == 'light' then
-    for i = 0, 15, 1 do
-      vim.g['terminal_color_' .. i] = M.getColor(vim.g['terminal_color_' .. i])
-    end
+    for i = 0, 15, 1 do vim.g['terminal_color_' .. i] = M.getColor(vim.g['terminal_color_' .. i]) end
   end
 end
 
@@ -153,21 +145,21 @@ function M.light_colors(colors)
   return ret
 end
 
-function M.load(opts)
-  vim.cmd('hi clear')
-  if vim.fn.exists('syntax_on') == 0 then
-    vim.cmd('syntax on')
-  end
-
-  vim.o.termguicolors = true
-
-  if opts.light then
+function M.set_bg(light)
+  if light then
     vim.o.background = 'light'
   else
     vim.o.background = 'dark'
   end
+end
 
-  colors_name = opts.theme
+function M.load(opts)
+  vim.cmd('hi clear')
+  if vim.fn.exists('syntax_on') == 0 then vim.cmd('syntax on') end
+
+  vim.o.termguicolors = true
+
+  -- print(vim.inspect(opts))
   vim.g.colors_name = opts.theme
   M.syntax(opts.scheme.base)
 
