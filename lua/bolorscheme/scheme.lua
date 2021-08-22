@@ -376,7 +376,16 @@ function M.create(opts)
 
       -- CleverF
       CleverFChar = {fg = c.error}, -- error messages on the command line
-      CleverFCursor = {fg = c.error}, -- error messages on the command line
+      CleverFCursor = {link = 'CleverFChar'}, -- error messages on the command line
+
+      -- Nvim TS Rainbow
+      rainbowcol1 = {fg = c.light.red},
+      rainbowcol2 = {fg = c.light.green},
+      rainbowcol3 = {fg = c.light.teal},
+      rainbowcol4 = {fg = c.light.blue},
+      rainbowcol5 = {fg = c.light.cyan},
+      rainbowcol6 = {fg = c.light.magenta},
+      rainbowcol7 = {fg = c.light.yellow},
     },
   }
 end
