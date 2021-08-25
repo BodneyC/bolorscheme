@@ -33,7 +33,7 @@ end
 
 local M = {}
 
-function M.generateAlacritty()
+function M.alacritty()
   local cfg = theme .. [[ : &]] .. theme .. [[
 
   primary:
@@ -79,7 +79,7 @@ function M.generateAlacritty()
   write_to_tmp(cfg, 'alacritty', 'yaml')
 end
 
-function M.generateKitty()
+function M.kitty()
   local cfg = [[
 selection_background     ]] .. colors.light.gray .. [[
 
@@ -136,7 +136,7 @@ color15    ]] .. colors.light.gray
   write_to_tmp(cfg, 'kitty', 'conf')
 end
 
-function M.generateThemeFromWal(name)
+function M.theme_from_wal(name)
   local fn = os.getenv('HOME') .. '/.cache/wal/colors'
   if not file_exists(fn) then
     print('Couldn\'t find wal file (' .. fn .. ')')
