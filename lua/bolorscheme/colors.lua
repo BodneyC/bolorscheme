@@ -13,9 +13,9 @@ function M.process(opts)
   }
 
   colors.gitSigns = {
-    add = util.brighten(colors.diff.add, 0.2),
-    change = util.brighten(colors.diff.change, 0.2),
-    delete = util.brighten(colors.diff.delete, 0.2),
+    add = util.brighten(colors.diff.add, 0.3),
+    change = util.brighten(colors.diff.change, 0.3),
+    delete = util.brighten(colors.diff.delete, 0.3),
   }
 
   colors.git.ignore = colors.dark.gray

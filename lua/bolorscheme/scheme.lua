@@ -310,8 +310,8 @@ function M.create(opts)
 
       -- LspSaga
       DiagnosticError = {fg = c.error},
-      DiagnosticWarning = {fg = c.warning},
-      DiagnosticInformation = {fg = c.info},
+      DiagnosticWarn = {fg = c.warning},
+      DiagnosticInfo = {fg = c.info},
       DiagnosticHint = {fg = c.hint},
 
       -- NeoVim
