@@ -323,6 +323,13 @@ function M.create(opts)
       BufferCurrent = {fg = c.light.green, bg = c.bg},
       BufferVisible = {fg = c.dark.blue, bg = c.bg_dark},
       BufferInactive = {fg = c.light.gray, bg = c.bg_dark},
+      BufferLineErrorSelected = {fg = c.dark.red},
+      BufferLineErrorDiagnosticSelected = {link = 'BufferLineErrorSelected'},
+      BufferLinePick = {link = 'BufferLineErrorSelected'},
+      BufferLinePickVisible = {fg = c.light.red},
+      BufferLinePickSelected = {link = 'BufferLinePickVisible'},
+      BufferLineWarningSelected = {fg = c.dark.yellow},
+      BufferLineWarningDiagnosticSelected = {link = 'BufferLineWarningSelected'},
 
       -- BufferCurrentIndex = {bg = c.bg},
       BufferVisibleIndex = {bg = c.bg_dark},
