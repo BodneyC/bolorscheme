@@ -385,6 +385,40 @@ function M.create(opts)
       CleverFChar = {fg = c.error}, -- error messages on the command line
       CleverFCursor = {link = 'CleverFChar'}, -- error messages on the command line
 
+      -- nvim-cmp
+      CmpItemAbbrMatch = {link = 'Directory'},
+      CmpItemAbbrMatchFuzzy = {link = 'Operator'},
+      CmpItemAbbrDeprecated = {link = 'Comment'},
+
+      CmpItemKindDefault = {link = 'Directory'},
+
+      CmpItemKindText = {link = 'String'},
+      CmpItemKindMethod = {link = 'Function'},
+      CmpItemKindFunction = {link = 'Function'},
+      CmpItemKindConstructor = {link = 'NonText'},
+      CmpItemKindField = {link = 'Statement'},
+      CmpItemKindVariable = {link = 'Error'},
+      CmpItemKindClass = {link = 'Operator'},
+      CmpItemKindInterface = {link = 'Type'},
+      -- CmpItemKindModule = {link = ''},
+      CmpItemKindProperty = {link = 'Statement'},
+      CmpItemKindUnit = {link = 'Number'},
+      CmpItemKindValue = {link = 'Number'},
+      CmpItemKindEnum = {link = 'Operator'},
+      -- CmpItemKindKeyword = {link = ''},
+      -- CmpItemKindSnippet = {link = ''},
+      -- CmpItemKindColor = {link = ''},
+      CmpItemKindFile = {link = 'Directory'},
+      -- CmpItemKindReference = {link = ''},
+      CmpItemKindFolder = {link = 'Directory'},
+      -- CmpItemKindEnumMember = {link = ''},
+      CmpItemKindConstant = {link = 'Constant'},
+      CmpItemKindStruct = {link = 'Type'},
+      -- CmpItemKindEvent = {link = ''},
+      CmpItemKindOperator = {link = 'Operator'},
+      -- CmpItemKindTypeParameter = {link = ''},
+
+
       -- Nvim TS Rainbow
       rainbowcol1 = {fg = c.light.red},
       rainbowcol2 = {fg = c.light.green},
