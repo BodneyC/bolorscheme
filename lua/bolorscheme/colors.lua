@@ -29,7 +29,9 @@ function M.process(opts)
 
   colors.bg_visual = util.darken(colors.highlight, 0.7)
   colors.bg_search = colors.highlight
-  colors.fg_sidebar = colors.fg_dark
+
+  colors.fg_sidebar = util.darken(colors.fg, 0.92)
+  colors.bg_sidebar = util.darken(colors.bg, 0.92)
 
   colors.error = colors.dark.red
   colors.warning = colors.dark.yellow
