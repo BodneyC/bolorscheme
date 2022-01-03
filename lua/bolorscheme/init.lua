@@ -8,8 +8,6 @@ __BOLORSCHEME_CONFIG = nil
 
 local M = {}
 
-local colors_name = nil
-
 function M.setup(conf)
   config.setup(conf)
   if not config.loaded then
@@ -17,7 +15,6 @@ function M.setup(conf)
     return
   end
   util.set_bg(config.opts.light)
-  colors_name = config.opts.theme
   colors.process(config.opts)
   scheme.create(config.opts)
   util.load(config.opts)
