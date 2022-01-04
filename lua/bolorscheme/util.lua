@@ -3,9 +3,9 @@ local hsluv = require('bolorscheme.hsluv')
 
 local M = {}
 
-M.colorCache = {}
+M.color_cache = {}
 
-local function hexToRgb(hex_str)
+local function hex2rgb(hex_str)
   local hex = '[abcdef0-9][abcdef0-9]'
   local pat = '^#(' .. hex .. ')(' .. hex .. ')(' .. hex .. ')$'
   hex_str = string.lower(hex_str)
@@ -18,16 +18,15 @@ local function hexToRgb(hex_str)
 end
 
 function M.blend(fg, bg, alpha)
-  bg = hexToRgb(bg)
-  fg = hexToRgb(fg)
+  bg = hex2rgb(bg)
+  fg = hex2rgb(fg)
 
-  local blendChannel = function(i)
+  local blend_ch = function(i)
     local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
     return math.floor(math.min(math.max(0, ret), 255) + 0.5)
   end
 
-  return string.format('#%02X%02X%02X', blendChannel(1), blendChannel(2),
-    blendChannel(3))
+  return string.format('#%02X%02X%02X', blend_ch(1), blend_ch(2), blend_ch(3))
 end
 
 function M.darken(hex, amount, bg)
@@ -39,15 +38,15 @@ end
 
 function M.brighten(color, percentage)
   local hsl = hsluv.hex_to_hsluv(color)
-  local larpSpace = 100 - hsl[3]
+  local larp_space = 100 - hsl[3]
   if percentage < 0 then
-    larpSpace = hsl[3]
+    larp_space = hsl[3]
   end
-  hsl[3] = hsl[3] + larpSpace * percentage
+  hsl[3] = hsl[3] + larp_space * percentage
   return hsluv.hsluv_to_hex(hsl)
 end
 
-function M.randomColor(color)
+function M.random_color(color)
   if color ~= 'NONE' then
     local hsl = hsluv.hex_to_hsluv(color)
     hsl[1] = math.random(1, 360)
@@ -56,7 +55,7 @@ function M.randomColor(color)
   return color
 end
 
-function M.invertColor(color)
+function M.invert_color(color)
   if color ~= 'NONE' then
     local hsl = hsluv.hex_to_hsluv(color)
     hsl[3] = 100 - hsl[3]
@@ -68,14 +67,14 @@ function M.invertColor(color)
   return color
 end
 
-function M.invertIfLight(color)
+function M.invert_if_light(color)
   if vim.o.background == 'dark' then
     return color
   end
-  if not M.colorCache[color] then
-    M.colorCache[color] = M.invertColor(color)
+  if not M.color_cache[color] then
+    M.color_cache[color] = M.invert_color(color)
   end
-  return M.colorCache[color]
+  return M.color_cache[color]
 end
 
 function M.highlight(group, color)
@@ -150,14 +149,15 @@ function M.terminal(colors)
 
   if vim.o.background == 'light' then
     for i = 0, 15, 1 do
-      vim.g['terminal_color_' .. i] = M.invertIfLight(vim.g['terminal_color_' .. i])
+      vim.g['terminal_color_' .. i] = M.invert_if_light(
+        vim.g['terminal_color_' .. i])
     end
   end
 end
 
 function M.light_colors(colors)
   if type(colors) == 'string' then
-    return M.invertIfLight(colors)
+    return M.invert_if_light(colors)
   end
   local ret = {}
   for key, value in pairs(colors) do
@@ -189,6 +189,7 @@ function M.load(scheme)
     M.terminal(scheme.colors)
     M.syntax(scheme.plugins)
     M.autocmds(scheme.config)
+    vim.cmd([[doautocmd ColorScheme]])
   end, 0)
 end
 

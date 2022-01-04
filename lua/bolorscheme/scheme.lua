@@ -14,6 +14,7 @@ function M.create(opts)
   local c = scheme.colors
 
   scheme.base = {
+    -- LuaFormatter off
     Comment = {fg = c.comment, style = opts.styles.commentStyle}, -- any comment
     ColorColumn = {bg = c.bg_visual}, -- used for the columns set with 'colorcolumn'
     Conceal = {fg = c.fg_highlight}, -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -150,9 +151,12 @@ function M.create(opts)
     -- These groups are for the native LSP client. Some other LSP clients may
     -- use these groups, or use their own. Consult your LSP client's
     -- documentation.
+
+    -- LuaFormatter on
   }
 
   scheme.plugins = {
+    -- LuaFormatter off
     LspReferenceText = {bg = c.fg_highlight}, -- used for highlighting "text" references
     LspReferenceRead = {bg = c.fg_highlight}, -- used for highlighting "read" references
     LspReferenceWrite = {bg = c.fg_highlight}, -- used for highlighting "write" references
@@ -431,10 +435,11 @@ function M.create(opts)
     rainbowcol1 = {fg = c.light.red},
     rainbowcol2 = {fg = c.light.green},
     rainbowcol3 = {fg = c.light.teal},
-    rainbowcol4 = {fg = c.light.blue},
+    rainbowcol4 = {fg = c.light.magenta},
     rainbowcol5 = {fg = c.light.cyan},
-    rainbowcol6 = {fg = c.light.magenta},
-    rainbowcol7 = {fg = c.light.yellow},
+    rainbowcol6 = {fg = c.light.yellow},
+    rainbowcol7 = {fg = c.light.blue},
+    -- LuaFormatter on
   }
 
   M.active_scheme = scheme
