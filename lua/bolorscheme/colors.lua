@@ -1,9 +1,18 @@
-local util = require'bolorscheme.util'
+local util = require('bolorscheme.util')
 
 local M = {}
 
-function M.process(opts)
-  local colors = opts.colors
+function M.setup(opts)
+
+  local ok, ret = pcall(require, 'bolorscheme.themes.' .. opts.theme)
+  if not ok then
+    print(
+      'Module \'bolorscheme.themes.' .. opts.theme .. '\' not required: ' ..
+        ret)
+    return
+  end
+
+  local colors = ret
 
   colors.diff = {
     add = util.darken(colors.git.add, 0.15),
@@ -41,6 +50,8 @@ function M.process(opts)
   if opts.light then
     colors = util.light_colors(colors)
   end
+
+  return colors
 end
 
 return M

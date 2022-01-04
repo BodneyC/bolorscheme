@@ -1,17 +1,17 @@
-local util = require 'bolorscheme.util'
+-- local colors = require('bolorscheme.colors')
+local util = require('bolorscheme.util')
+-- local scheme = require('bolorscheme.scheme')
 
-local M = {}
+local config = {}
 
-M.loaded = false
+config.loaded = false
 
 local defaults = {
   theme = 'bolorscheme',
   light = false,
   bg_preserve = false,
-  colors = nil,
   transparent = false,
   sidebars = {},
-  scheme = {},
   styles = {
     commentStyle = 'italic',
     keywordStyle = 'italic',
@@ -20,17 +20,15 @@ local defaults = {
   },
 }
 
-function M.setup(opts)
-  M._opts = opts
-  M.opts = vim.tbl_deep_extend('force', {}, defaults, M._opts or {})
-  if M.opts.bg_preserve then M.opts.light = vim.o.background ~= 'dark' end
-  local ok, ret = pcall(require, 'bolorscheme.themes.' .. M.opts.theme)
-  if not ok then
-    print('Module \'bolorscheme.themes.' .. M.opts.theme .. '\' not required: ' .. ret)
-    return
+function config.setup(opts)
+  config._opts = opts
+  config.opts = vim.tbl_deep_extend('force', {}, defaults, config._opts or {})
+  if config.opts.bg_preserve then
+    config.opts.light = vim.o.background ~= 'dark'
   end
-  M.opts.colors = ret
-  M.loaded = true
+  util.set_bg(config.opts.light)
+  -- print(vim.inspect(config))
+  config.loaded = true
 end
 
-return M
+return config

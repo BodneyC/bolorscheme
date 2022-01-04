@@ -1,10 +1,11 @@
-if not __BOLORSCHEME_CONFIG then
+local active_scheme = require('bolorscheme.scheme').active_scheme
+
+if not active_scheme then
   print('Bolorscheme config not set')
   return {}
 end
 
-local util = require('bolorscheme.util')
-local colors = __BOLORSCHEME_CONFIG.colors
+local colors = active_scheme.colors
 
 local bolorscheme = {}
 
@@ -43,8 +44,8 @@ bolorscheme.inactive = {
 if vim.o.background == 'light' then
   for _, mode in pairs(bolorscheme) do
     for _, section in pairs(mode) do
-      if section.bg then section.bg = util.getColor(section.bg) end
-      if section.fg then section.fg = util.getColor(section.fg) end
+      if section.bg then section.bg = section.bg end
+      if section.fg then section.fg = section.fg end
     end
   end
 end

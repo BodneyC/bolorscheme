@@ -1,9 +1,12 @@
-if not __BOLORSCHEME_CONFIG then
+local active_scheme = require('bolorscheme.scheme').active_scheme
+
+if not active_scheme then
   print('Bolorscheme config not set')
   return {}
 end
-local theme = __BOLORSCHEME_CONFIG.theme
-local colors = __BOLORSCHEME_CONFIG.colors
+
+local theme = active_scheme.config.theme
+local colors = active_scheme.colors
 
 local function file_exists(fn)
   local f = io.open(fn, 'r')
@@ -76,6 +79,7 @@ function M.alacritty()
     cyan:       ]] .. hash_replace(colors.dark.cyan) .. [[
 
     white:      ]] .. hash_replace(colors.light.gray)
+
   write_to_tmp(cfg, 'alacritty', 'yaml')
 end
 
@@ -136,66 +140,66 @@ color15    ]] .. colors.light.gray
   write_to_tmp(cfg, 'kitty', 'conf')
 end
 
-function M.theme_from_wal(name)
+function M.theme_from_wal()
   local fn = os.getenv('HOME') .. '/.cache/wal/colors'
   if not file_exists(fn) then
     print('Couldn\'t find wal file (' .. fn .. ')')
     return
   end
   local f = io.open(fn, 'r')
-  local colors = {}
+  local wal_colors = {}
   for l in f:lines() do
-    table.insert(colors, l)
+    table.insert(wal_colors, l)
   end
   f:close()
-  print(vim.inspect(colors))
-  print(#colors)
+  print(vim.inspect(wal_colors))
+  print(#wal_colors)
   local cfg = [[return {
   none           = 'NONE',
-  comment        = ']] .. colors[9] .. [[',
+  comment        = ']] .. wal_colors[9] .. [[',
 
-  bg             = ']] .. colors[1] .. [[',
-  bg_dark        = ']] .. colors[1] .. [[',
-  bg_highlight   = ']] .. colors[1] .. [[',
+  bg             = ']] .. wal_colors[1] .. [[',
+  bg_dark        = ']] .. wal_colors[1] .. [[',
+  bg_highlight   = ']] .. wal_colors[1] .. [[',
 
-  fg             = ']] .. colors[8] .. [[',
-  fg_dark        = ']] .. colors[8] .. [[',
-  fg_highlight   = ']] .. colors[8] .. [[',
+  fg             = ']] .. wal_colors[8] .. [[',
+  fg_dark        = ']] .. wal_colors[8] .. [[',
+  fg_highlight   = ']] .. wal_colors[8] .. [[',
 
-  terminal_black = ']] .. colors[1] .. [[',
-  highlight      = ']] .. colors[8] .. [[',
+  terminal_black = ']] .. wal_colors[1] .. [[',
+  highlight      = ']] .. wal_colors[8] .. [[',
 
   light          = {
-    red          = ']] .. colors[2] .. [[',
-    green        = ']] .. colors[3] .. [[',
-    yellow       = ']] .. colors[4] .. [[',
-    blue         = ']] .. colors[5] .. [[',
-    magenta      = ']] .. colors[6] .. [[',
-    cyan         = ']] .. colors[7] .. [[',
-    gray         = ']] .. colors[9] .. [[',
-    teal         = ']] .. colors[5] .. [[',
+    red          = ']] .. wal_colors[2] .. [[',
+    green        = ']] .. wal_colors[3] .. [[',
+    yellow       = ']] .. wal_colors[4] .. [[',
+    blue         = ']] .. wal_colors[5] .. [[',
+    magenta      = ']] .. wal_colors[6] .. [[',
+    cyan         = ']] .. wal_colors[7] .. [[',
+    gray         = ']] .. wal_colors[9] .. [[',
+    teal         = ']] .. wal_colors[5] .. [[',
   },
 
   dark           = {
-    red          = ']] .. colors[10] .. [[',
-    green        = ']] .. colors[11] .. [[',
-    yellow       = ']] .. colors[12] .. [[',
-    blue         = ']] .. colors[13] .. [[',
-    magenta      = ']] .. colors[14] .. [[',
-    cyan         = ']] .. colors[15] .. [[',
-    gray         = ']] .. colors[16] .. [[',
-    teal         = ']] .. colors[13] .. [[',
+    red          = ']] .. wal_colors[10] .. [[',
+    green        = ']] .. wal_colors[11] .. [[',
+    yellow       = ']] .. wal_colors[12] .. [[',
+    blue         = ']] .. wal_colors[13] .. [[',
+    magenta      = ']] .. wal_colors[14] .. [[',
+    cyan         = ']] .. wal_colors[15] .. [[',
+    gray         = ']] .. wal_colors[16] .. [[',
+    teal         = ']] .. wal_colors[13] .. [[',
   },
 
   git            = {
-    change       = ']] .. colors[2] .. [[',
-    add          = ']] .. colors[3] .. [[',
-    delete       = ']] .. colors[4] .. [[',
-    conflict     = ']] .. colors[5] .. [[',
-    text         = ']] .. colors[6] .. [[',
+    change       = ']] .. wal_colors[2] .. [[',
+    add          = ']] .. wal_colors[3] .. [[',
+    delete       = ']] .. wal_colors[4] .. [[',
+    conflict     = ']] .. wal_colors[5] .. [[',
+    text         = ']] .. wal_colors[6] .. [[',
   },
 }]]
-    write_to_tmp(cfg, 'wal', 'lua')
+  write_to_tmp(cfg, 'wal', 'lua')
 end
 
 return M

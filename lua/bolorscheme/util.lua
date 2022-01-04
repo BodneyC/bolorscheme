@@ -10,7 +10,8 @@ local function hexToRgb(hex_str)
   local pat = '^#(' .. hex .. ')(' .. hex .. ')(' .. hex .. ')$'
   hex_str = string.lower(hex_str)
 
-  assert(string.find(hex_str, pat) ~= nil, 'hex_to_rgb: invalid hex_str: ' .. tostring(hex_str))
+  assert(string.find(hex_str, pat) ~= nil,
+    'hex_to_rgb: invalid hex_str: ' .. tostring(hex_str))
 
   local r, g, b = string.match(hex_str, pat)
   return {tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)}
@@ -25,7 +26,8 @@ function M.blend(fg, bg, alpha)
     return math.floor(math.min(math.max(0, ret), 255) + 0.5)
   end
 
-  return string.format('#%02X%02X%02X', blendChannel(1), blendChannel(2), blendChannel(3))
+  return string.format('#%02X%02X%02X', blendChannel(1), blendChannel(2),
+    blendChannel(3))
 end
 
 function M.darken(hex, amount, bg)
@@ -38,7 +40,9 @@ end
 function M.brighten(color, percentage)
   local hsl = hsluv.hex_to_hsluv(color)
   local larpSpace = 100 - hsl[3]
-  if percentage < 0 then larpSpace = hsl[3] end
+  if percentage < 0 then
+    larpSpace = hsl[3]
+  end
   hsl[3] = hsl[3] + larpSpace * percentage
   return hsluv.hsluv_to_hex(hsl)
 end
@@ -56,15 +60,21 @@ function M.invertColor(color)
   if color ~= 'NONE' then
     local hsl = hsluv.hex_to_hsluv(color)
     hsl[3] = 100 - hsl[3]
-    if hsl[3] < 40 then hsl[3] = hsl[3] + (100 - hsl[3]) * 0.3 end
+    if hsl[3] < 40 then
+      hsl[3] = hsl[3] + (100 - hsl[3]) * 0.3
+    end
     return hsluv.hsluv_to_hex(hsl)
   end
   return color
 end
 
-function M.getColor(color)
-  if vim.o.background == 'dark' then return color end
-  if not M.colorCache[color] then M.colorCache[color] = M.invertColor(color) end
+function M.invertIfLight(color)
+  if vim.o.background == 'dark' then
+    return color
+  end
+  if not M.colorCache[color] then
+    M.colorCache[color] = M.invertColor(color)
+  end
   return M.colorCache[color]
 end
 
@@ -73,13 +83,15 @@ function M.highlight(group, color)
     vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
   else
     local style = color.style and 'gui=' .. color.style or 'gui=NONE'
-    local fg = color.fg and 'guifg=' .. M.getColor(color.fg) or
-                   (color.preserve and '' or 'guifg=NONE')
-    local bg = color.bg and 'guibg=' .. M.getColor(color.bg) or
-                   (color.preserve and '' or 'guibg=NONE')
-    local sp = color.sp and 'guisp=' .. M.getColor(color.sp) or ''
+    local fg = color.fg and 'guifg=' .. color.fg or
+                 (color.preserve and '' or 'guifg=NONE')
+    local bg = color.bg and 'guibg=' .. color.bg or
+                 (color.preserve and '' or 'guibg=NONE')
+    local sp = color.sp and 'guisp=' .. color.sp or ''
 
-    local hl = 'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' .. sp
+    local hl =
+      'highlight ' .. group .. ' ' .. style .. ' ' .. fg .. ' ' .. bg .. ' ' ..
+        sp
 
     vim.cmd(hl)
   end
@@ -92,17 +104,20 @@ function M.autocmds(config)
   ]])
   for _, sidebar in ipairs(config.sidebars) do
     if sidebar == 'terminal' then
-      vim.cmd([[autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+      vim.cmd(
+        [[autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     else
       vim.cmd([[autocmd FileType ]] .. sidebar ..
-                  [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
+                [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
     end
   end
   vim.cmd([[augroup end]])
 end
 
 function M.syntax(syntax)
-  for group, colors in pairs(syntax) do M.highlight(group, colors) end
+  for group, colors in pairs(syntax) do
+    M.highlight(group, colors)
+  end
 end
 
 function M.terminal(colors)
@@ -134,14 +149,20 @@ function M.terminal(colors)
   vim.g.terminal_color_14 = colors.dark.cyan
 
   if vim.o.background == 'light' then
-    for i = 0, 15, 1 do vim.g['terminal_color_' .. i] = M.getColor(vim.g['terminal_color_' .. i]) end
+    for i = 0, 15, 1 do
+      vim.g['terminal_color_' .. i] = M.invertIfLight(vim.g['terminal_color_' .. i])
+    end
   end
 end
 
 function M.light_colors(colors)
-  if type(colors) == 'string' then return M.getColor(colors) end
+  if type(colors) == 'string' then
+    return M.invertIfLight(colors)
+  end
   local ret = {}
-  for key, value in pairs(colors) do ret[key] = M.light_colors(value) end
+  for key, value in pairs(colors) do
+    ret[key] = M.light_colors(value)
+  end
   return ret
 end
 
@@ -153,20 +174,21 @@ function M.set_bg(light)
   end
 end
 
-function M.load(opts)
+function M.load(scheme)
   vim.cmd('hi clear')
-  if vim.fn.exists('syntax_on') == 0 then vim.cmd('syntax on') end
+  if vim.fn.exists('syntax_on') == 0 then
+    vim.cmd('syntax on')
+  end
 
   vim.o.termguicolors = true
 
-  -- print(vim.inspect(opts))
-  vim.g.colors_name = opts.theme
-  M.syntax(opts.scheme.base)
+  vim.g.colors_name = scheme.config.theme
+  M.syntax(scheme.base)
 
   vim.defer_fn(function()
-    M.terminal(opts.colors)
-    M.syntax(opts.scheme.plugins)
-    M.autocmds(opts)
+    M.terminal(scheme.colors)
+    M.syntax(scheme.plugins)
+    M.autocmds(scheme.config)
   end, 0)
 end
 

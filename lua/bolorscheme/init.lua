@@ -1,35 +1,27 @@
 local config = require('bolorscheme.config')
-local colors = require('bolorscheme.colors')
 local scheme = require('bolorscheme.scheme')
 local util = require('bolorscheme.util')
 
--- Can't think of another way to do this...
-__BOLORSCHEME_CONFIG = nil
+local bolorscheme = {}
 
-local M = {}
-
-function M.setup(conf)
+function bolorscheme.setup(conf)
   config.setup(conf)
   if not config.loaded then
     print 'Loading failed'
     return
   end
-  util.set_bg(config.opts.light)
-  colors.process(config.opts)
-  scheme.create(config.opts)
-  util.load(config.opts)
-  __BOLORSCHEME_CONFIG = config.opts
+  util.load(scheme.create(config.opts))
 end
 
-function M.print_config()
-  if not __BOLORSCHEME_CONFIG then
+function bolorscheme.print_config()
+  if not config.opts then
     print 'Bolorscheme config not set'
     return
   end
-  print(vim.inspect(__BOLORSCHEME_CONFIG))
+  print(vim.inspect(config.opts))
 end
 
-function M.generate(prg)
+function bolorscheme.generate(prg)
   local generator = require 'bolorscheme.generator'
   if prg:lower() == 'alacritty' then
     generator.generateAlacritty()
@@ -42,4 +34,4 @@ function M.generate(prg)
   end
 end
 
-return M
+return bolorscheme
