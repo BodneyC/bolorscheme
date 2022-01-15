@@ -37,7 +37,6 @@ function M.create(opts)
     FoldColumn = {bg = c.bg, fg = c.comment}, -- 'foldcolumn'
     SignColumn = {bg = opts.transparent and c.none or c.bg, fg = c.fg_highlight}, -- column where |signs| are displayed
     SignColumnSB = {bg = c.bg_sidebar, fg = c.fg_highlight}, -- column where |signs| are displayed
-    Substitute = {bg = c.red, fg = c.black}, -- |:substitute| replacement text highlighting
     LineNr = {fg = c.fg_highlight}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = {fg = c.light.gray}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = {fg = c.light.yellow, style = 'bold'}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -58,7 +57,8 @@ function M.create(opts)
     Question = {fg = c.dark.blue}, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = {bg = c.bg_visual, style = 'bold'}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = {bg = c.bg_search, fg = c.fg}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch = {bg = c.light.yellow, fg = c.black}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    IncSearch = {bg = c.light.yellow, fg = c.bg_highlight}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute = {link = 'IncSearch'}, -- |:substitute| replacement text highlighting
     SpecialKey = {fg = c.dark.gray}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = {sp = c.error, style = 'undercurl'}, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = {sp = c.warning, style = 'undercurl'}, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
@@ -67,8 +67,8 @@ function M.create(opts)
     StatusLine = {fg = c.fg_sidebar, bg = c.bg_statusline}, -- status line of current window
     StatusLineNC = {fg = c.fg_highlight, bg = c.bg_statusline}, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = {bg = c.bg_statusline, fg = c.fg_highlight}, -- tab pages line, not active tab page label
-    TabLineFill = {bg = c.black}, -- tab pages line, where there are no labels
-    TabLineSel = {fg = c.black, bg = c.dark.blue}, -- tab pages line, active tab page label
+    TabLineFill = {bg = c.bg_highlight}, -- tab pages line, where there are no labels
+    TabLineSel = {fg = c.bg_highlight, bg = c.dark.blue}, -- tab pages line, active tab page label
     Title = {fg = c.dark.blue, style = 'bold'}, -- titles for output from ":set all", ":autocmd" etc.
     Visual = {bg = c.bg_visual}, -- Visual mode selection
     VisualNOS = {bg = c.bg_visual}, -- Visual mode selection when vim is "Not Owning the Selection".
@@ -232,12 +232,12 @@ function M.create(opts)
     -- TSType              = { };    -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
     TSVariable = {style = opts.styles.variableStyle}, -- Any variable name that does not have another highlight.
-    TSVariableBuiltin = {fg = c.red}, -- Variable names that are defined by the languages, like `this` or `self`.
+    TSVariableBuiltin = {fg = c.dark.red}, -- Variable names that are defined by the languages, like `this` or `self`.
 
     -- TSTag               = { };    -- Tags like html tag names.
     -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
     -- TSText              = { };    -- For strings considered text in a markup language.
-    TSTextReference = {fg = c.red}, -- FIXME
+    TSTextReference = {fg = c.dark.red}, -- FIXME
     -- TSEmphasis          = { };    -- For text to be represented with emphasis.
     -- TSUnderline         = { };    -- For text to be represented with an underline.
     -- TSStrike            = { };    -- For strikethrough text.
@@ -246,7 +246,7 @@ function M.create(opts)
     -- TSURI               = { };    -- Any URI like a link or email.
 
     -- Lua
-    -- luaTSProperty = { fg = c.red }, -- Same as `TSField`.
+    -- luaTSProperty = { fg = c.dark.red }, -- Same as `TSField`.
 
     -- LspTrouble
     LspTroubleText = {fg = c.fg_dark},
@@ -355,12 +355,12 @@ function M.create(opts)
     BufferVisibleTarget = {bg = c.bg_dark},
     -- BufferInactiveTarget = {bg = c.bg_dark},
 
-    -- BufferCurrentMod = {fg = c.light_red, bg = c.bg},
-    BufferVisibleMod = {fg = c.light_red, bg = c.bg_dark},
-    -- BufferInactiveMod = {fg = c.light_red, bg = c.bg_dark},
+    -- BufferCurrentMod = {fg = c.light.red, bg = c.bg},
+    BufferVisibleMod = {fg = c.light.red, bg = c.bg_dark},
+    -- BufferInactiveMod = {fg = c.light.red, bg = c.bg_dark},
 
     -- BufferLineIndicatorSelected = {fg = c.git.change},
-    -- BufferLineFill = {bg = c.black},
+    -- BufferLineFill = {bg = c.bg_highlight},
 
     -- DevIconDefault = {bg = c.none, preserve = true},
     -- DevIconDefaultVisible = {bg = c.fg, preserve = true},
