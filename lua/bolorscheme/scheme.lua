@@ -287,7 +287,24 @@ function M.create(opts)
     GitSignsDelete = {fg = c.gitSigns.delete}, -- diff mode: Deleted line |diff.txt|
 
     -- Telescope
-    TelescopeBorder = {fg = c.border_highlight},
+    TelescopeNormal = {bg = c.bg_dark},
+    TelescopeBorder = {link = 'TelescopeNormal'},
+
+    TelescopePromptNormal = {bg = c.bg_highlight},
+    TelescopePromptTitle = {bg = c.bg_highlight, fg = c.bg_highlight},
+    TelescopePromptBorder = {link = 'TelescopePromptNormal'},
+    TelescopePromptPrefix = {link = 'TelescopePromptNormal'},
+
+    -- TelescopePromptTitle = {bg = c.dark.blue, fg = c.bg},
+    -- TelescopePromptNormal = {bg = c.bg_highlight},
+    -- TelescopePromptBorder = {link = 'TelescopePromptNormal'},
+    -- TelescopePromptPrefix = {link = 'TelescopePromptNormal'},
+
+    TelescopePreviewTitle = {bg = c.dark.red, fg = c.bg},
+
+    TelescopeResultsTitle = {bg = c.bg_dark, fg = c.bg_dark},
+
+    TelescopeSelection = {},
 
     -- NvimTree
     NvimTreeNormal = {fg = c.fg_sidebar, bg = c.bg_sidebar},

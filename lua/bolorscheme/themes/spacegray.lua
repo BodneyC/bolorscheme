@@ -1,9 +1,9 @@
 return {
   none = 'NONE',
-  comment = '#565f89',
+  comment = '#565f74',
 
-  bg = '#111314',
-  bg_dark = '#282C30',
+  bg = '#15181a',
+  bg_dark = '#1a1d1f',
   bg_highlight = '#212324',
 
   fg = '#E3E8E3',
